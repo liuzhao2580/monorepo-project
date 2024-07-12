@@ -28,11 +28,9 @@ const articleOperation = {
 }
 
 const ArticleList = () => {
-  const history = useNavigate()
+  const navigate = useNavigate()
 
   const [params, setParams] = useState<ArticleListPageDto>(new ArticleListPageDto())
-
-  
 
   // 表格的数据
   const [tableData, pageParams, tableLoading, setReloadFlag] = useTableHooks<
@@ -56,9 +54,10 @@ const ArticleList = () => {
   /** 按钮点击 跳转页面 */
   const clickLink = useCallback((record: ArticleDto, pathname: string) => {
     const { id } = record
-    history(pathname, {
-      state: id
-    })
+    navigate(`${pathname}/${id}`)
+    // navigate(pathname, {
+    //   state: id
+    // })
   }, [])
 
   const columns: ColumnType<ArticleDto>[] = [

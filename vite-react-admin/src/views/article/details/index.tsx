@@ -1,5 +1,5 @@
 import { useEffect, useState, useCallback, useRef } from "react"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import { message, Popconfirm, Spin } from "antd"
 
 import "./index.scss"
@@ -19,6 +19,7 @@ import { ArticleStatusEnum } from "@shared/enum/article-enum"
 import { UserRolesEnum } from "@shared/enum/user-enum"
 
 const ArticleDetails = () => {
+  const { id } = useParams()
   const navigate = useNavigate()
   const childrenRef = useRef<any>(null)
 
@@ -28,7 +29,6 @@ const ArticleDetails = () => {
 
   useEffect(() => {
     (async function () {
-      const id = navigate.location.state
       const data = await getArticleDetailsByIdApi(id as string)
       if (data.code === ResultCode.SUCCESS) {
         setArticleDetails(data.data)
