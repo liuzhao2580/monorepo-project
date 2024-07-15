@@ -1,5 +1,5 @@
 import { IsNotEmpty, IsNumber, Min } from "class-validator"
-import { ArticleStatusEnum } from "../enum/article-enum"
+import { ArticleStatusEnum, ArticleCategoryLevelEnum } from "../enum/article-enum"
 
 /** 分页需要的 dto */
 export class BasePageDto {
@@ -57,5 +57,7 @@ export class ArticleListPageDto extends BasePageDto {
 /** 文章分类分页 */
 export class ArticleCategoryPageDto extends BasePageDto {
   /** 级别 */
-  level?: number = 1
+  level?: ArticleCategoryLevelEnum
+  /** 分类名称 */
+  categoryName?: string
 }

@@ -1,5 +1,5 @@
 import { Injectable } from "@nestjs/common"
-import { ArticleListPageDto } from "@shared/dto/page.dto"
+import { ArticleCategoryPageDto, ArticleListPageDto } from "@shared/dto/page.dto"
 import {
   ArticleCategoryByLazyDto,
   ArticleCategoryInsertOrUpdateDto,
@@ -161,6 +161,16 @@ export class ArticleService {
         console.log(error)
       }
     }
+  }
+
+
+  /** 文章分类-分类列表数据，按照表格类型 */
+  async articleCategoryGetList(articleCategoryPageDto: ArticleCategoryPageDto) {
+    return Pagination(
+      this.articleCategoryRepository,
+      ArticleCategoryPageDto,
+      articleCategoryPageDto
+    )
   }
 
   /** 文章分类-懒加载形式 */

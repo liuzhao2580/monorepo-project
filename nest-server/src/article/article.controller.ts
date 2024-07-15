@@ -1,7 +1,7 @@
 import { Body, Controller, Delete, Get, Param, Post, Query } from "@nestjs/common"
 import { R } from "../utils/R/R"
 import { ArticleService } from "./article.service"
-import { ArticleListPageDto } from "@shared/dto/page.dto"
+import { ArticleCategoryPageDto, ArticleListPageDto } from "@shared/dto/page.dto"
 import {
   ArticleCategoryByLazyDto,
   ArticleCategoryInsertOrUpdateDto,
@@ -43,8 +43,9 @@ export class ArticleController {
 
   /** 获取全部分类数据-按照表格 */
   @Post("/category/list")
-  async articleCategoryGetList() {
-    return R.success()
+  async articleCategoryGetList(@Body() articleCategoryPageDto: ArticleCategoryPageDto) {
+    const res = await this.articleService.articleCategoryGetList(articleCategoryPageDto)
+    return R.success().setData(res)
   }
 
   /** 查询所有的分类数据 */
