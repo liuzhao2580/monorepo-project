@@ -8,7 +8,6 @@ import {
   ArticleCategoryLevelDto
 } from "@shared/dto/article.dto"
 import {
-  ArticleCategoryPageDto,
   ArticleListPageDto
 } from "@shared/dto/page.dto"
 /** 获取文章列表数据 */
@@ -16,12 +15,6 @@ export const articleListApi = (
   params: ArticleListPageDto
 ): Promise<ResultModel<ResultPageModel<ArticleDto>>> =>
   axios.post("/article/list", params)
-
-/** 获取 文章的分类数据-按照表格类型 */
-export const getArticleCategoryListApi = (
-  params: ArticleCategoryPageDto
-): Promise<ResultModel<ResultPageModel<ArticleCategoryDto>>> =>
-  axios.post(`article/category/list`, params)
 
 /** 获取 查询文章分类数据 */
 export const getArticleCategoryApi = (

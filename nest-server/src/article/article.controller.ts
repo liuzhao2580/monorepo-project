@@ -41,13 +41,6 @@ export class ArticleController {
     return R.success()
   }
 
-  /** 获取全部分类数据-按照表格 */
-  @Post("/category/list")
-  async articleCategoryGetList(@Body() articleCategoryPageDto: ArticleCategoryPageDto) {
-    const res = await this.articleService.articleCategoryGetList(articleCategoryPageDto)
-    return R.success().setData(res)
-  }
-
   /** 查询所有的分类数据 */
   @Get("/category/all")
   async articleCategoryGetAll(@Query() params: ArticleCategoryLevelDto) {

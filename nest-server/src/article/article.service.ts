@@ -1,5 +1,8 @@
 import { Injectable } from "@nestjs/common"
-import { ArticleCategoryPageDto, ArticleListPageDto } from "@shared/dto/page.dto"
+import {
+  ArticleCategoryPageDto,
+  ArticleListPageDto
+} from "@shared/dto/page.dto"
 import {
   ArticleCategoryByLazyDto,
   ArticleCategoryInsertOrUpdateDto,
@@ -36,7 +39,8 @@ export class ArticleService {
     if (errors.length) {
       throw new BizException(ResultCode.ERROR, errors)
     }
-    const { categoryId, title, content, userId, status , coverImages} = articleSaveOrEditDto
+    const { categoryId, title, content, userId, status, coverImages } =
+      articleSaveOrEditDto
     // 获取文章分类
     const getArticleCategory = await this.articleCategoryRepository.findOne({
       where: {
@@ -163,24 +167,15 @@ export class ArticleService {
     }
   }
 
-
-  /** 文章分类-分类列表数据，按照表格类型 */
-  async articleCategoryGetList(articleCategoryPageDto: ArticleCategoryPageDto) {
-    return Pagination(
-      this.articleCategoryRepository,
-      ArticleCategoryPageDto,
-      articleCategoryPageDto
-    )
-  }
-
   /** 文章分类-懒加载形式 */
   async articleCategoryLazyList(
     articleCategoryByLazyDto: ArticleCategoryByLazyDto
   ) {
     const { level, parentId } = articleCategoryByLazyDto
+
     const res = await this.articleCategoryRepository.find({
       where: {
-        parentId
+        parentId: parentId ? parentId : null
       }
     })
     return res

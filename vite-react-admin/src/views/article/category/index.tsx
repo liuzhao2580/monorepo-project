@@ -2,28 +2,23 @@ import { useState } from "react"
 import { Table, Pagination, Spin } from "antd"
 import "./index.scss"
 
-import { getArticleCategoryListApi } from "@/api/modules/article"
-import { ArticleCategoryDto } from "@shared/dto/article.dto"
+import { getArticleCategoryByLazyApi } from "@/api/modules/article"
+import { ArticleCategoryDto, ArticleCategoryByLazyDto } from "@shared/dto/article.dto"
 
 import { useTableHooks } from "@/utils/hooks/useStateHooks"
-import { ArticleCategoryPageDto } from "@shared/dto/page.dto"
 
 /** 文章分类列表组件 */
 const CategoryCom = () => {
-  const [params, setParams] = useState<ArticleCategoryPageDto>(
-    () => new ArticleCategoryPageDto()
-  )
+  const [params, setParams] = useState<ArticleCategoryByLazyDto>()
 
   const [tableList, pageParams, tableLoading] = useTableHooks<
     ArticleCategoryDto,
-    ArticleCategoryPageDto
-  >(getArticleCategoryListApi, params)
+    ArticleCategoryByLazyDto
+  >(getArticleCategoryByLazyApi, params)
 
   // 页码改变事件
   const pageChange = (page: number, pageSize: number) => {
-    const params: ArticleCategoryPageDto = {
-      current: page,
-      pageSize
+    const params: ArticleCategoryByLazyDto = {
     }
     setParams(params)
   }
