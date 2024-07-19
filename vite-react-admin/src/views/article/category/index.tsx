@@ -1,83 +1,94 @@
-import { useState } from "react"
-import { Table, Pagination, Spin } from "antd"
+import { useEffect, useState } from "react"
+import { Tree } from "antd"
 import "./index.scss"
 
 import { getArticleCategoryByLazyApi } from "@/api/modules/article"
-import { ArticleCategoryDto, ArticleCategoryByLazyDto } from "@shared/dto/article.dto"
+import { ArticleCategoryByLazyDto } from "@shared/dto/article.dto"
+import { ResultCode } from "@shared/enum/result-enum"
 
-import { useTableHooks } from "@/utils/hooks/useStateHooks"
+interface DataNode {
+  title: string
+  key: string
+  isLeaf?: boolean
+  children?: DataNode[]
+}
+
+const updateTreeData = (
+  list: DataNode[],
+  key: React.Key,
+  children: DataNode[]
+): DataNode[] =>
+  list.map(node => {
+    if (node.key === key) {
+      return {
+        ...node,
+        children
+      }
+    }
+    if (node.children) {
+      return {
+        ...node,
+        children: updateTreeData(node.children, key, children)
+      }
+    }
+    return node
+  })
 
 /** 文章分类列表组件 */
 const CategoryCom = () => {
-  const [params, setParams] = useState<ArticleCategoryByLazyDto>()
+  const params: ArticleCategoryByLazyDto = {}
+  const [treeData, setTreeData] = useState<DataNode[]>([])
 
-  const [tableList, pageParams, tableLoading] = useTableHooks<
-    ArticleCategoryDto,
-    ArticleCategoryByLazyDto
-  >(getArticleCategoryByLazyApi, params)
-
-  // 页码改变事件
-  const pageChange = (page: number, pageSize: number) => {
-    const params: ArticleCategoryByLazyDto = {
+  // 初始化接口数据，获取最外层的分类数据。
+  async function handleInit() {
+    const data = await getArticleCategoryByLazyApi(params)
+    if (data.code === ResultCode.SUCCESS) {
+      let treeData: DataNode[] = []
+      treeData = data.data.map(item => {
+        return {
+          title: item.categoryName,
+          key: item.id
+        }
+      })
+      setTreeData(treeData)
     }
-    setParams(params)
+  }
+  useEffect(() => {
+    handleInit()
+  }, [])
+
+  // 懒加载数据
+  const onLoadData = async ({ key, children }: DataNode) => {
+    new Promise<void>(resolve => {
+      if (children) {
+        resolve()
+        return
+      }
+      getArticleCategoryByLazyApi({
+        parentId: key
+      }).then(res => {
+        if (res.code === ResultCode.SUCCESS) {
+          const children: DataNode[] = res.data.map(item => {
+            return {
+              title: item.categoryName,
+              key: item.id
+            }
+          })
+          setTreeData(origin => updateTreeData(origin, key, children))
+
+          resolve()
+        }
+      })
+    })
   }
 
-  const columns = [
-    {
-      title: "分类名称",
-      dataIndex: "categoryName",
-      key: "categoryName",
-      width: "50%"
-    },
-    {
-      title: "分类级别",
-      dataIndex: "level",
-      key: "level",
-      width: "20%"
-    },
-    {
-      title: "编辑",
-      dataIndex: "action",
-      key: "action",
-      render: () => (
-        <div className="article-category-com-table-action">
-          <span className="article-category-com-table-action-btn">
-            查看下级
-          </span>
-          <span className="article-category-com-table-action-btn">编辑</span>
-          <span className="article-category-com-table-action-btn">删除</span>
-        </div>
-      )
-    }
-  ]
   return (
-    <div className="article-category-com">
-      {/* 头部选择器 */}
-      <div className="article-category-com-header"></div>
-      {/* 列表 */}
-      <div className="article-category-com-table">
-        <Spin spinning={tableLoading} delay={300}>
-          <Table
-            pagination={false}
-            rowKey="id"
-            columns={columns}
-            dataSource={tableList}
-          />
-        </Spin>
-      </div>
-      {/* 分页数据 */}
-      <div className="article-category-com-page">
-        <Pagination
-          total={pageParams.total}
-          current={pageParams.current}
-          showSizeChanger
-          showQuickJumper
-          onChange={pageChange}
-          showTotal={total => `总条数 ${total}`}
-        />
-      </div>
-    </div>
+    <Tree
+      selectable={false}
+      showLine={true}
+      loadData={onLoadData}
+      treeData={treeData}
+    />
   )
 }
 
