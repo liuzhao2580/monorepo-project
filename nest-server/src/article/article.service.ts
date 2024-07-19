@@ -1,6 +1,5 @@
 import { Injectable } from "@nestjs/common"
 import {
-  ArticleCategoryPageDto,
   ArticleListPageDto
 } from "@shared/dto/page.dto"
 import {
@@ -12,7 +11,7 @@ import {
 } from "@shared/dto/article.dto"
 import { InjectRepository } from "@nestjs/typeorm"
 import { ArticleList } from "./article-list.entity"
-import { Repository } from "typeorm"
+import { IsNull, Repository } from "typeorm"
 import { ArticleCategory } from "./article-category.entity"
 import { ArticleCategoryLevelEnum } from "@shared/enum/article-enum"
 import { Pagination, handleValidate } from "../utils"
@@ -171,11 +170,10 @@ export class ArticleService {
   async articleCategoryLazyList(
     articleCategoryByLazyDto: ArticleCategoryByLazyDto
   ) {
-    const { level, parentId } = articleCategoryByLazyDto
-
+    const { parentId } = articleCategoryByLazyDto
     const res = await this.articleCategoryRepository.find({
       where: {
-        parentId: parentId ? parentId : null
+        parentId: parentId ? parentId : IsNull()
       }
     })
     return res
