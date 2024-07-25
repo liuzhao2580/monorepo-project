@@ -1,7 +1,18 @@
-import { Body, Controller, Delete, Get, Param, Post, Query } from "@nestjs/common"
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  Query
+} from "@nestjs/common"
 import { R } from "../utils/R/R"
 import { ArticleService } from "./article.service"
-import { ArticleCategoryPageDto, ArticleListPageDto } from "@shared/dto/page.dto"
+import {
+  ArticleCategoryPageDto,
+  ArticleListPageDto
+} from "@shared/dto/page.dto"
 import {
   ArticleCategoryByLazyDto,
   ArticleCategoryInsertOrUpdateDto,
@@ -16,7 +27,9 @@ export class ArticleController {
 
   /** 文章新增、编辑 */
   @Post("/saveOrUpdate")
-  async articleSaveOrUpdate(@Body() articleSaveOrEditDto :ArticleSaveOrEditDto) {
+  async articleSaveOrUpdate(
+    @Body() articleSaveOrEditDto: ArticleSaveOrEditDto
+  ) {
     await this.articleService.articleSaveOrUpdate(articleSaveOrEditDto)
     return R.success().setMsg(ResultMsg.INSERT_SUCCESS)
   }
@@ -24,9 +37,17 @@ export class ArticleController {
   /** 文章列表 */
   @Post("/list")
   async articleList(@Body() articleListPageDto: ArticleListPageDto) {
-    const res = await this.articleService.articleList(
-      articleListPageDto
-    )
+    const res = await this.articleService.articleList(articleListPageDto)
+    return R.success().setData(res)
+  }
+
+  /** 通过id获取文章数据 */
+  @Get("/details/:id")
+  async articleDetailsById(@Param("id") id: string) {
+    if (!id) {
+      return R.error().setMsg(ResultMsg.NOT_EMPTY)
+    }
+    const res = await this.articleService.articleDetailsById(id)
     return R.success().setData(res)
   }
 
@@ -53,7 +74,9 @@ export class ArticleController {
   async articleCategoryLazyList(
     @Body() articleCategoryByLazyDto: ArticleCategoryByLazyDto
   ) {
-    const res = await this.articleService.articleCategoryLazyList(articleCategoryByLazyDto)
+    const res = await this.articleService.articleCategoryLazyList(
+      articleCategoryByLazyDto
+    )
     return R.success().setData(res)
   }
 

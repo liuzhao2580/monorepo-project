@@ -80,6 +80,18 @@ export class ArticleService {
     )
   }
 
+  /** 通过id获取文章数据 */
+  async articleDetailsById(id: string) {
+    const res = await this.articleListRepository.find({
+      where: {
+        id
+      }
+    })
+    if(res.length) {
+      return res[0]
+    } else return null
+  }
+
   /** 查询所有的分类数据 */
   async articleCategoryGetAll(params: ArticleCategoryLevelDto) {
     let query =

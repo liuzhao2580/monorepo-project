@@ -33,13 +33,13 @@ export const getArticleCategoryByLazyApi = (
 /** 文章新增\编辑 */
 export const articleSaveOrUpdateApi = (
   params: ArticleSaveOrEditDto | ArticleDto
-): Promise<ResultModel<any>> => axios.post(`/article/saveOrUpdate`, params)
+): Promise<ResultModel<any>> => axios.post(`article/saveOrUpdate`, params)
 
 /** 文章删除 */
 export const articleDeleteApi = (id: string): Promise<ResultModel<any>> =>
-  axios.delete(`/article/${id}`)
+  axios.delete(`article/${id}`)
 
 /** 获取文章数据----根据id */
 export const getArticleDetailsByIdApi = (
   id: string
-): Promise<ResultModel<ArticleDto>> => axios.get(`/article/${id}`)
+): Promise<ResultModel<ArticleDto>> => axios.get(`article/details/${id}`)
