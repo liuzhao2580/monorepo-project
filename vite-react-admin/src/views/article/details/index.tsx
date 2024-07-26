@@ -1,6 +1,7 @@
 import { useEffect, useState, useCallback, useRef } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import { message, Popconfirm, Spin } from "antd"
+import dayjs from "dayjs"
 
 import "./index.scss"
 
@@ -90,7 +91,7 @@ const ArticleDetails = () => {
                   {articleDetails?.nickName}
                 </div>
                 <div className="article-details-com-header-main-left-top-update-time">
-                  <span>{articleDetails?.updateTime as unknown as string}</span>
+                  <span>{dayjs(articleDetails?.updateTime).format("YYYY-MM-DD HH:mm:ss")}</span>
                 </div>
               </div>
               <div className="article-details-com-header-main-left-bottom mt10">
