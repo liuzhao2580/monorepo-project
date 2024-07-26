@@ -1,6 +1,7 @@
 import { useEffect, useState, useCallback, useRef } from "react"
 import { useNavigate, useParams } from "react-router-dom"
-import { message, Popconfirm, Spin } from "antd"
+import { EditOutlined, LeftOutlined } from "@ant-design/icons"
+import { Button, message, Popconfirm, Spin } from "antd"
 import dayjs from "dayjs"
 
 import "./index.scss"
@@ -81,6 +82,14 @@ const ArticleDetails = () => {
     <Spin spinning={loading}>
       <div className="article-details-com">
         <div className="article-details-com-header">
+          <Button
+            type="primary"
+            shape="circle"
+            icon={<LeftOutlined />}
+            onClick={() => {
+              navigate(-1)
+            }}
+          />
           <div className="article-details-com-header-title">
             {articleDetails?.title}
           </div>
@@ -91,7 +100,11 @@ const ArticleDetails = () => {
                   {articleDetails?.nickName}
                 </div>
                 <div className="article-details-com-header-main-left-top-update-time">
-                  <span>{dayjs(articleDetails?.updateTime).format("YYYY-MM-DD HH:mm:ss")}</span>
+                  <span>
+                    {dayjs(articleDetails?.updateTime).format(
+                      "YYYY-MM-DD HH:mm:ss"
+                    )}
+                  </span>
                 </div>
               </div>
               <div className="article-details-com-header-main-left-bottom mt10">
@@ -124,9 +137,15 @@ const ArticleDetails = () => {
               >
                 <div
                   className="article-details-com-header-main-right-edit iconfont icon-bianji"
-                  onClick={editArticle}
-                  title="编辑"
-                ></div>
+                >
+                  <Button
+                    title="编辑"
+                    size="small"
+                    type="primary"
+                    icon={<EditOutlined />}
+                    onClick={editArticle}
+                  >编辑</Button>
+                </div>
               </Permission>
               <Permission
                 roleId={[UserRolesEnum.admin, UserRolesEnum.superAdmin]}

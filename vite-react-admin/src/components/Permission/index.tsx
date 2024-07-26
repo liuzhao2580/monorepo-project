@@ -1,4 +1,4 @@
-import { useState, useLayoutEffect, ReactNode } from "react"
+import { useState, ReactNode, useLayoutEffect } from "react"
 import { userStore } from "@/store/user"
 import { UserRolesEnum } from "@shared/enum/user-enum"
 import { observer } from "mobx-react-lite"
@@ -13,9 +13,9 @@ const PermissionCom = observer(
   ({ children, roleId, permissionFlag }: IProps) => {
     const [show, setShow] = useState<boolean>(false)
     useLayoutEffect(() => {
-      setShow(() => false)
+      setShow(false)
       if (permissionFlag) {
-        setShow(() => true)
+        setShow(true)
         return
       }
       if (roleId instanceof Array) {
@@ -23,12 +23,14 @@ const PermissionCom = observer(
           value => value === userStore.userInfo.roleId
         )
         if (getFind) {
-          setShow(() => true)
+          setShow(true)
         }
       } else if (typeof roleId === "number") {
-        roleId === userStore.userInfo.roleId && setShow(() => true)
+        roleId === userStore.userInfo.roleId && setShow(true)
       }
-    }, [userStore.userInfo.roleId, permissionFlag])
+    }, [permissionFlag, userStore.userInfo.roleId])
+
+
     return <>{show && children}</>
   }
 )
