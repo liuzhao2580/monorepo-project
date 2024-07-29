@@ -78,7 +78,7 @@ export const routerList: Array<IRouterList> = [
         Component: ArticleCreate
       },
       {
-        path: ROUTE_PATH.ARTICLE_EDIT,
+        path: ROUTE_PATH.ARTICLE_EDIT + "/:id",
         meta: { hidden: true, title: ROUTE_TITLE.ARTICLE_EDIT },
         Component: ArticleCreate
       },
