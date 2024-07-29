@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback, useReducer } from "react"
-import { useParams } from "react-router-dom"
+import { useParams, useNavigate } from "react-router-dom"
 import { Input, Button, message } from "antd"
 import { Editor, Toolbar } from "@wangeditor/editor-for-react"
 import { IDomEditor, IEditorConfig, IToolbarConfig } from "@wangeditor/editor"
@@ -23,6 +23,7 @@ import {
   ArticleSaveTypeEnum
 } from "@shared/enum/article-enum"
 import { getUserIdStorage } from "@/utils/modules/commonSave"
+import { ROUTE_PATH } from "@/router/RouteConst"
 
 const ACTIONS_TYPE = {
   /** 用来设置 modal 的显示隐藏 */
@@ -68,6 +69,7 @@ function reducers(
 }
 
 const ArticleCreate = () => {
+  const navigate = useNavigate()
   // 初始化 用来获取 url 地址栏的数据
   const { id: getId } = useParams()
   const [state, dispatch] = useReducer(reducers, new InitialState())
@@ -130,7 +132,7 @@ const ArticleCreate = () => {
 
   /** 预览按钮 */
   const previewBtn = useCallback(() => {
-    if(!editor) return
+    if (!editor) return
     if (!editor.getText()) {
       return message.warning("请输入正确的内容", 1)
     }
@@ -172,10 +174,10 @@ const ArticleCreate = () => {
       }
 
       resultObj.status = type
-      console.log(resultObj, "resultObj")
       // return
       setArticleParams(() => resultObj)
       dispatch({ type: ACTIONS_TYPE.MODAL_LOADING, data: true })
+      let articleId: string = ""
       try {
         const data = await articleSaveOrUpdateApi(articleParams)
         if (data.code === ResultCode.SUCCESS) {
@@ -187,10 +189,14 @@ const ArticleCreate = () => {
               status: data.data.status
             }
           })
+          articleId = data.data.id
+          console.log(articleId)
+          // navigate(`${ROUTE_PATH.ARTICLE_DETAILS}/${articleId}`)
         }
         dispatch({ type: ACTIONS_TYPE.PREVIEWMODEL, data: false })
       } finally {
         dispatch({ type: ACTIONS_TYPE.MODAL_LOADING, data: false })
+        
       }
     },
     [articleParams]
@@ -236,7 +242,13 @@ const ArticleCreate = () => {
           onCreated={setEditor}
           onChange={editor => setHtml(editor.getHtml())}
           mode="default"
-          style={{ height: "500px", overflowY: "hidden" }}
+          style={{
+            height: "calc(100vh - 200px)",
+            overflowY: "hidden",
+            border: "1px solid #aaa",
+            borderRadius: "10px",
+            marginTop: "10px"
+          }}
         />
       </div>
       {/* 预览 */}
