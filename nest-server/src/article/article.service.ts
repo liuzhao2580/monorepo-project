@@ -38,7 +38,7 @@ export class ArticleService {
     if (errors.length) {
       throw new BizException(ResultCode.ERROR, errors)
     }
-    const { categoryId, title, content, userId, status, coverImages } =
+    const { categoryId, title, content, userId, status, coverImages, id } =
       articleSaveOrEditDto
     // 获取文章分类
     const getArticleCategory = await this.articleCategoryRepository.findOne({
@@ -57,6 +57,7 @@ export class ArticleService {
       }
     })
     const article = new ArticleDto()
+    article.id = id
     article.title = title
     article.content = content
     article.userId = userId
@@ -68,7 +69,7 @@ export class ArticleService {
     // @ts-ignore
     article.status = status
     article.coverImages = coverImages
-    await this.articleListRepository.save(article)
+    return await this.articleListRepository.save(article)
   }
 
   /** 文章列表 */

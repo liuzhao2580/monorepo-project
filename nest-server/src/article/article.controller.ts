@@ -30,8 +30,12 @@ export class ArticleController {
   async articleSaveOrUpdate(
     @Body() articleSaveOrEditDto: ArticleSaveOrEditDto
   ) {
-    await this.articleService.articleSaveOrUpdate(articleSaveOrEditDto)
-    return R.success().setMsg(ResultMsg.INSERT_SUCCESS)
+    const data = await this.articleService.articleSaveOrUpdate(articleSaveOrEditDto)
+    let msg = ResultMsg.INSERT_SUCCESS
+    if(articleSaveOrEditDto.id) {
+      msg = ResultMsg.UPDATE_SUCCESS
+    }
+    return R.success().setData(data).setMsg(msg)
   }
 
   /** 文章列表 */
