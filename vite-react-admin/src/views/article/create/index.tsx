@@ -180,18 +180,17 @@ const ArticleCreate = () => {
       let articleId: string = ""
       try {
         const data = await articleSaveOrUpdateApi(articleParams)
+        articleId = data.data.id
         if (data.code === ResultCode.SUCCESS) {
           message.success(data.msg)
           setArticleParams(prev => {
             return {
               ...prev,
-              id: data.data.id,
+              id: articleId,
               status: data.data.status
             }
           })
-          articleId = data.data.id
-          console.log(articleId)
-          // navigate(`${ROUTE_PATH.ARTICLE_DETAILS}/${articleId}`)
+          navigate(`${ROUTE_PATH.ARTICLE_DETAILS}/${articleId}`)
         }
         dispatch({ type: ACTIONS_TYPE.PREVIEWMODEL, data: false })
       } finally {

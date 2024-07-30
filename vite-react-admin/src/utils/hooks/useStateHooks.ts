@@ -66,11 +66,12 @@ export const useTableHooks = <T, E extends BasePageDto>(
       try {
         const data = await callback(params)
         if (data.code === ResultCode.SUCCESS) {
-          console.log(data.data.records)
-          setTableList(data.data.records)
+          const { records, total, pageSize, current } = data.data
+          setTableList(records)
           setPageParams({
-            pageSize: data.data.pageSize,
-            current: data.data.current
+            total,
+            pageSize,
+            current
           })
         }
       } catch (error) {

@@ -147,7 +147,7 @@ const ArticleList = () => {
   /** 页码或 pageSize 改变的回调*/
   const onPageChange = useCallback((page: number, pageSize?: number) => {
     setParams(prev => {
-      return { ...prev, ...{ pageNum: page, pageSize: pageSize as number } }
+      return { ...prev, ...{ current: page, pageSize: pageSize as number } }
     })
   }, [])
 
