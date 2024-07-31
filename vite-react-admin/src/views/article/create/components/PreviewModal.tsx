@@ -71,9 +71,14 @@ const PreviewModalCom = (props: IPreviewModal) => {
     setArticleCoverImage
   } = props
 
+  /** 文章上传的封面 */
+  const [articleCover, setArticleCover] = useState<ArticleCoverDto>({
+    size: 0,
+    images: []
+  })
   /** 文章封面的 radio 的改变事件 */
   const onCoverChange = ({ target }) => {
-    setArticleCoverImage({
+    setArticleCover({
       size: target.value,
       images: articleParams.coverImages.images
     })
@@ -101,7 +106,7 @@ const PreviewModalCom = (props: IPreviewModal) => {
       //     JSON.stringify(articleParams.coverImages.images)
       //   )
       //   const coverImagesList: ArticleCoverDto = {
-      //     size: articleParams.coverImages.size,
+      //     size: articleCover.size,
       //     images: getImagesList
       //   }
       //   coverImagesList.images[index] = url
@@ -171,26 +176,22 @@ const PreviewModalCom = (props: IPreviewModal) => {
             <div className="left-title">封面图</div>
             <div className="right-box">
               <div className="right-box-radio">
-                <Radio.Group
-                  onChange={onCoverChange}
-                  value={articleParams.coverImages.size}
-                >
+                <Radio.Group onChange={onCoverChange} value={articleCover.size}>
                   <Radio value={0}>无封面</Radio>
                   <Radio value={1}>单封面</Radio>
                   <Radio value={3}>三封面</Radio>
                 </Radio.Group>
               </div>
               {/* 图片上传 */}
-              {articleParams.coverImages.size !== 0 && (
+              {articleCover.size !== 0 && (
                 <div
                   className="right-box-images-upload"
                   style={{
-                    display:
-                      articleParams.coverImages.size !== 0 ? "block" : "none"
+                    display: articleCover.size !== 0 ? "block" : "none"
                   }}
                 >
                   {/* 说明是单图片上传 */}
-                  {articleParams.coverImages.size === 1 && (
+                  {articleCover.size === 1 && (
                     <div className="sign-pic-box">
                       <Radio.Group
                         onChange={signPicRadioOnChange}
@@ -238,11 +239,19 @@ const PreviewModalCom = (props: IPreviewModal) => {
                               placeholder="请输入图片地址"
                               allowClear
                               value={signPicNetworkSrc}
-                              onChange={(e) => setSignPicNetworkSrc(e.target.value)}
+                              onChange={e =>
+                                setSignPicNetworkSrc(e.target.value)
+                              }
                             />
-                            <Button style={{
-                              marginLeft: 10
-                            }} type="primary" onClick={signPicNetworkConfirm}>确定</Button>
+                            <Button
+                              style={{
+                                marginLeft: 10
+                              }}
+                              type="primary"
+                              onClick={signPicNetworkConfirm}
+                            >
+                              确定
+                            </Button>
                           </div>
                           <Image
                             preview={false}
@@ -259,32 +268,36 @@ const PreviewModalCom = (props: IPreviewModal) => {
                     </div>
                   )}
                   {/* 说明是 三图片上传 */}
-                  {articleParams.coverImages.size === 3 &&
-                    [0, 1, 2].map(item => {
-                      return (
-                        <Upload
-                          action=""
-                          listType="picture-card"
-                          showUploadList={false}
-                          customRequest={file => coverImagesRequest(file, item)}
-                          onChange={coverImagesUploadChange}
-                          key={item}
-                        >
-                          <div className="picture-card-div-img">
-                            {articleParams.coverImages.images[item] ? (
-                              <img
-                                src={articleParams.coverImages.images[item]}
-                                alt="avatar"
-                              />
-                            ) : (
-                              <div>
-                                <PlusOutlined />
-                              </div>
-                            )}
-                          </div>
-                        </Upload>
-                      )
-                    })}
+                  <div style={{ display: "flex" }}>
+                    {articleCover.size === 3 &&
+                      [0, 1, 2].map(item => {
+                        return (
+                          <Upload
+                            action=""
+                            listType="picture-card"
+                            showUploadList={false}
+                            customRequest={file =>
+                              coverImagesRequest(file, item)
+                            }
+                            onChange={coverImagesUploadChange}
+                            key={item}
+                          >
+                            <div className="picture-card-div-img">
+                              {articleParams.coverImages.images[item] ? (
+                                <img
+                                  src={articleParams.coverImages.images[item]}
+                                  alt="avatar"
+                                />
+                              ) : (
+                                <div>
+                                  <PlusOutlined />
+                                </div>
+                              )}
+                            </div>
+                          </Upload>
+                        )
+                      })}
+                  </div>
                 </div>
               )}
             </div>

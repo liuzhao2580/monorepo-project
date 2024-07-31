@@ -72,7 +72,7 @@ const RejectReasonCom = (props: IProps, ref) => {
   return (
     <Modal
       title="拒绝原因"
-      visible={state.visible}
+      open={state.visible}
       onCancel={modelCancel}
       onOk={modelOk}
     >

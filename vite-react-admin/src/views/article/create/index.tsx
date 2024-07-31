@@ -216,6 +216,7 @@ const ArticleCreate = () => {
           }
           className="title-input"
           value={articleParams.title}
+          maxLength={100}
         />
         <div className="btn-box">
           <Button
