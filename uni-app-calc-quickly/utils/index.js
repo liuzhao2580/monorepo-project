@@ -39,3 +39,7 @@ export function handleLogout(jumpFlag = true) {
 export function getUserIdStorage() {
   return uni.getStorageSync(StorageConst.userId)
 }
+
+export function testFunc(){
+	console.log("testFunc");
+}

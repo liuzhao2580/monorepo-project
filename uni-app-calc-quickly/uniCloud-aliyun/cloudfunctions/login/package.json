@@ -1,5 +1,5 @@
 {
-  "name": "registerUser",
+  "name": "login",
   "dependencies": {
     "return-data": "file:../common/return-data"
   },

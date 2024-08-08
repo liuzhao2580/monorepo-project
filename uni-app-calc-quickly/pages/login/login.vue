@@ -27,7 +27,7 @@ export default {
   },
   methods: {
     loginSuccess(res) {
-      this.$store.commit("user/MTU_userInfo", res)
+      console.log(res);
     }
   }
 }

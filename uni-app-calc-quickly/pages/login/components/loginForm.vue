@@ -112,8 +112,41 @@
 							//      .finally(() => {
 							//        this.loading = false
 							//      })
+							uniCloud.callFunction({
+								name: "login",
+								data: {
+									userName: this.formData.userName,
+									password: this.formData.password,
+								}
+							}).then(({
+								result
+							}) => {
+								if (result.code === 0) {
+									uni.setStorageSync(StorageConst.userId, result.data.id)
+									uni.switchTab({
+										url: "/pages/index/index"
+									})
+								} else {
+									uni.showToast({
+										icon: "error",
+										title: result.msg,
+										duration: 2000
+									});
+								}
+							}).finally(() => {
+								this.loading = false
+							})
 						} else {
 							// 注册
+							uniCloud.callFunction({
+								name: "registerUser",
+								data: {
+									userName: this.formData.userName,
+									password: this.formData.password,
+								}
+							}).then(res => {
+								console.log(res, "res");
+							})
 							// userCloud.register(res).then(res => {
 							//   let icon = res.code === 0 ? "success" : "error"
 							//   uni.showToast({
