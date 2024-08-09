@@ -89,29 +89,9 @@
 				this.$refs.uForm
 					.validate()
 					.then(res => {
+						this.loading = true
 						// 登录
 						if (this.loginFlag) {
-							this.loading = true
-							//    loginApi(this.formData)
-							//      .then(res => {
-							//        if (res.code === 0) {
-							//          uni.setStorageSync(StorageConst.token, `Bearer ${res.data.token}`)
-							// uni.setStorageSync(StorageConst.userId, res.data.id)
-							// this.$emit("loginSuccess", res.data)
-							//          uni.switchTab({
-							//            url: "/pages/Layout/Home/index"
-							//          })
-
-							//        } else {
-							//          this.$refs.uNotify.show({
-							//            type: "error",
-							//            message: res.msg
-							//          })
-							//        }
-							//      })
-							//      .finally(() => {
-							//        this.loading = false
-							//      })
 							uniCloud.callFunction({
 								name: "login",
 								data: {
@@ -122,7 +102,7 @@
 								result
 							}) => {
 								if (result.code === 0) {
-									uni.setStorageSync(StorageConst.userId, result.data.id)
+									uni.setStorageSync(StorageConst.userId, result.data._id)
 									uni.switchTab({
 										url: "/pages/index/index"
 									})
