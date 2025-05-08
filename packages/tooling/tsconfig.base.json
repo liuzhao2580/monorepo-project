@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "strict": true,
+    "jsx": "react-jsx",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "noImplicitAny": false,
+    "allowJs": true,
+    "baseUrl": ".",  // 设置 baseUrl 为根目录
+    "paths": {
+      "@shared/*": ["../shared/*"],  // 将 @shared/ 指向 shared 目录
+      "@/*": ["./src/*"]
+    }
+  },
+  "include": [
+    "packages/**/*"
+  ]
+}
