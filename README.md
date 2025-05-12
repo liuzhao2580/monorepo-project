@@ -1,4 +1,7 @@
-# monorepo 项目
+# pmm 项目
+- p PC
+- m Mobile
+- m MiniProgram
 
 # 依赖安装
 
