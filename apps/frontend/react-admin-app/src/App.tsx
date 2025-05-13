@@ -1,8 +1,9 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-
+import { PortNumber } from "@pmm/shared"
+import reactLogo from "@/assets/react.svg"
+console.log(PortNumber)
 function App() {
   const [count, setCount] = useState(0)
 

@@ -3,6 +3,7 @@
   "compilerOptions": {
     "target": "ESNext",
     "module": "NodeNext",
+    "moduleResolution": "NodeNext",
     "strict": true,
     "verbatimModuleSyntax": true,
     "skipLibCheck": true,
@@ -11,5 +12,6 @@
     "jsxImportSource": "hono/jsx",
     "outDir": "./dist"
   },
+  "include": ["../tooling/tsconfig.base.json"],
   "exclude": ["node_modules"]
 }

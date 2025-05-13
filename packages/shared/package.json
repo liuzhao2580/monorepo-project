@@ -1,12 +1,21 @@
 {
   "name": "@pmm/shared",
   "version": "1.0.0",
-  "description": "",
-  "main": "./index.ts",
-  "types": "./index.ts",
-  "keywords": [
-    "shared"
-  ],
-  "author": "",
-  "license": "ISC"
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "files": ["dist", "assets", "src"],
+  "scripts": {
+    "build": "tsc -b",
+    "dev": "tsc -b --watch"
+  },
+  "exports": {
+    "./*": "./dist/*.js",
+    "./assets/*": "./assets/*",
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.esm.js",
+      "types": "./dist/index.d.ts"
+    }
+  }
 }
