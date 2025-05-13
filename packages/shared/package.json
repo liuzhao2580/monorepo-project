@@ -1,21 +1,23 @@
 {
   "name": "@pmm/shared",
   "version": "1.0.0",
-  "main": "dist/index.js",
-  "module": "dist/index.esm.js",
-  "types": "dist/index.d.ts",
-  "files": ["dist", "assets", "src"],
+  "main": "./dist/index.js",
+  "module": "./dist/index.esm.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "src/styles/assets"
+  ],
   "scripts": {
     "build": "tsc -b",
     "dev": "tsc -b --watch"
   },
   "exports": {
-    "./*": "./dist/*.js",
-    "./assets/*": "./assets/*",
     ".": {
-      "require": "./dist/index.js",
       "import": "./dist/index.esm.js",
+      "require": "./dist/index.js",
       "types": "./dist/index.d.ts"
-    }
+    },
+    "./assets/*": "./src/styles/assets/*"
   }
 }

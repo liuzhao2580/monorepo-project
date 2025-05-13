@@ -1,5 +1,5 @@
 {
-  "extends": ["../tooling/tsconfig.base.json"],
+  "extends": "../../../packages/tooling/tsconfig.base.json",
   "compilerOptions": {
     "target": "ESNext",
     "module": "NodeNext",
@@ -12,6 +12,6 @@
     "jsxImportSource": "hono/jsx",
     "outDir": "./dist"
   },
-  "include": ["../tooling/tsconfig.base.json"],
+  "include": ["src/**/*.ts", "src/**/*.tsx"],
   "exclude": ["node_modules"]
 }
