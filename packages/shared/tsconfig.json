@@ -1,19 +1,17 @@
 {
   "compilerOptions": {
-    "rootDir": "src",          // 源码目录
-    "outDir": "dist",          // 构建产物目录
-    "declaration": true,       // 生成 .d.ts 类型声明
-    "declarationDir": "dist",  // 声明文件输出目录
-    "composite": true,         // 支持增量构建（便于被 watch）
-    "skipLibCheck": true,      // 跳过 node_modules 类型检查
-    "moduleResolution": "node",
-    "module": "ESNext",
-    "target": "ESNext",
+    "outDir": "dist",
+    "composite": false,
+    "declaration": true,
+    "declarationMap": false,
+    "emitDeclarationOnly": true,
     "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "target": "ESNext",
+    "isolatedModules": true,
     "strict": true,
-    "baseUrl": "."
+    "skipLibCheck": true
   },
-  "include": ["src", "assets"],
-  "exclude": ["dist", "node_modules"]
+  "include": ["src/**/*"] // ✅ 确保包含所有源文件
 }

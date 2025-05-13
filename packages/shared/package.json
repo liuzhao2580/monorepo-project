@@ -4,20 +4,20 @@
   "main": "./dist/index.js",
   "module": "./dist/index.esm.js",
   "types": "./dist/index.d.ts",
-  "files": [
-    "dist",
-    "src/styles/assets"
-  ],
   "scripts": {
-    "build": "tsc -b",
+    "build": "tsup",
     "dev": "tsc -b --watch"
   },
   "exports": {
     ".": {
       "import": "./dist/index.esm.js",
-      "require": "./dist/index.js",
-      "types": "./dist/index.d.ts"
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.js"
     },
-    "./assets/*": "./src/styles/assets/*"
+    "./vite-utils": {
+      "import": "./dist/vite-utils.mjs",
+      "types": "./dist/index.d.ts",
+      "require": "./dist/vite-utils.js"
+    }
   }
 }
