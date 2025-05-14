@@ -1,9 +1,0 @@
-{
-  "name": "login",
-  "dependencies": {
-    "return-data": "file:../common/return-data"
-  },
-  "extensions": {
-    "uni-cloud-jql": {}
-  }
-}

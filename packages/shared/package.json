@@ -13,11 +13,6 @@
       "import": "./dist/index.esm.js",
       "types": "./dist/index.d.ts",
       "require": "./dist/index.js"
-    },
-    "./vite-utils": {
-      "import": "./dist/vite-utils.mjs",
-      "types": "./dist/index.d.ts",
-      "require": "./dist/vite-utils.js"
     }
   }
 }
