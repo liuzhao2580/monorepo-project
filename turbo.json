@@ -1,5 +1,8 @@
 {
   "$schema": "https://turborepo.com/schema.json",
+  "globalDependencies": [
+    "**/tsconfig*.json"
+  ],
   "tasks": {
     "build": {
       "outputs": ["dist/**"]
@@ -8,8 +11,10 @@
       "dependsOn": ["^check-types"]
     },
     "dev": {
-      "persistent": true,
-      "cache": false
+      "dependsOn": [],
+      "outputs": [],
+      "cache": false,
+      "persistent": true
     }
   }
 }
