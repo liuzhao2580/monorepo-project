@@ -1,0 +1,26 @@
+{
+  "name": "@pmm/eslint-config",
+  "version": "0.0.1",
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./react": "./src/react/index.js",
+    "./vue": "./src/vue/index.js"
+  },
+  "scripts": {
+    "stub": "pnpm unbuild --stub"
+  },
+  "files": [
+    "dist"
+  ],
+  "devDependencies": {
+    "@types/eslint": "catalog:",
+    "@typescript-eslint/eslint-plugin": "catalog:",
+    "@typescript-eslint/parser": "catalog:",
+    "eslint": "^9.26.0",
+    "eslint-plugin-react-hooks": "catalog:",
+    "eslint-plugin-react-refresh": "catalog:",
+    "eslint-plugin-vue": "catalog:",
+    "typescript": "catalog:"
+  }
+}

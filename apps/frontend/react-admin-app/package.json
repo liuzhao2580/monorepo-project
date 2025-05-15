@@ -10,19 +10,19 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "antd": "catalog:",
     "react": "catalog:",
     "react-dom": "catalog:",
-    "react-router": "^7.6.0"
+    "react-router": "catalog:"
   },
   "devDependencies": {
+    "@pmm/unocss-config": "workspace:*",
+    "@pmm/eslint-config": "workspace:*",
     "@eslint/js": "catalog:",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
     "@vitejs/plugin-react": "catalog:",
-    "eslint-plugin-react-hooks": "catalog:",
-    "eslint-plugin-react-refresh": "catalog:",
     "globals": "catalog:",
-    "typescript-eslint": "catalog:",
     "vite": "catalog:"
   }
 }

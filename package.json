@@ -14,16 +14,11 @@
     "catalog": "pnpx codemod pnpm/catalog"
   },
   "devDependencies": {
+    "@pmm/unocss-config": "workspace:*",
     "@pmm/tsconfig": "workspace:*",
-    "@types/node": "catalog:",
-    "@typescript-eslint/eslint-plugin": "catalog:",
-    "@typescript-eslint/parser": "catalog:",
-    "eslint": "catalog:",
-    "eslint-config-prettier": "catalog:",
-    "prettier": "catalog:",
+    "@pmm/eslint-config": "workspace:*",
     "tsup": "catalog:",
-    "turbo": "catalog:",
-    "typescript": "catalog:"
+    "turbo": "catalog:"
   },
   "engines": {
     "node": ">=20.10.0",
