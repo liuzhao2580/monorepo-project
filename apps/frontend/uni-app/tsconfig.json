@@ -1,5 +1,5 @@
 {
-  "extends": ["../tooling/tsconfig.base.json"],
+  "extends": "@pmm/tsconfig/web-app.json",
   "compilerOptions": {
     "sourceMap": true,
     "baseUrl": ".",

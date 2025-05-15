@@ -1,0 +1,15 @@
+{
+  "$schema": "https://unpkg.com/@changesets/config@3.1.1/schema.json",
+  "changelog": "@changesets/cli/changelog",
+  "commit": false,
+  "fixed": [["@pmm/*"]],
+  "snapshot": {
+    "prereleaseTemplate": "{tag}-{datetime}"
+  },
+  "privatePackages": { "version": true, "tag": true },
+  "linked": [],
+  "access": "public",
+  "baseBranch": "main",
+  "updateInternalDependencies": "patch",
+  "ignore": []
+}

@@ -8,12 +8,12 @@
   },
   "dependencies": {
     "@pmm/shared": "workspace:*",
-    "@hono/node-server": "^1.14.1",
-    "hono": "^4.7.8"
+    "@hono/node-server": "catalog:",
+    "hono": "catalog:"
   },
   "devDependencies": {
     "@types/node": "^20.11.17",
-    "tsx": "^4.7.1",
+    "tsx": "catalog:",
     "typescript": "^5.8.3"
   }
 }
