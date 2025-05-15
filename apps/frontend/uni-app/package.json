@@ -61,7 +61,7 @@
     "@dcloudio/vite-plugin-uni": "catalog:",
     "@vue/tsconfig": "catalog:",
     "@vue/runtime-core": "catalog:",
-    "vite": "5.2.8",
+    "vite": "catalog:",
     "vue-tsc": "catalog:"
   }
 }

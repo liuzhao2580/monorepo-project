@@ -1,5 +1,5 @@
 {
-  "extends": "@pmm/tsconfig/web-app.json",
+  "extends": "@pmm/tsconfig/web.json",
   "compilerOptions": {
     "baseUrl": ".",
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",

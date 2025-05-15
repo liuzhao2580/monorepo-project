@@ -11,8 +11,5 @@
     "web-app.json",
     "web.json"
   ],
-  "dependencies": {
-    "@pmm/types": "workspace:*",
-    "vite": "catalog:"
-  }
+  "dependencies": {}
 }
