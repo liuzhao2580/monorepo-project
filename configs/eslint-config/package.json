@@ -14,13 +14,16 @@
     "dist"
   ],
   "devDependencies": {
+    "@eslint/js": "catalog:",
     "@types/eslint": "catalog:",
     "@typescript-eslint/eslint-plugin": "catalog:",
     "@typescript-eslint/parser": "catalog:",
-    "eslint": "^9.26.0",
+    "eslint": "catalog:",
     "eslint-plugin-react-hooks": "catalog:",
     "eslint-plugin-react-refresh": "catalog:",
     "eslint-plugin-vue": "catalog:",
-    "typescript": "catalog:"
+    "globals": "catalog:",
+    "typescript": "catalog:",
+    "typescript-eslint": "catalog:"
   }
 }

@@ -16,13 +16,11 @@
     "react-router": "catalog:"
   },
   "devDependencies": {
-    "@pmm/unocss-config": "workspace:*",
     "@pmm/eslint-config": "workspace:*",
-    "@eslint/js": "catalog:",
+    "@pmm/unocss-config": "workspace:*",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
     "@vitejs/plugin-react": "catalog:",
-    "globals": "catalog:",
     "vite": "catalog:"
   }
 }

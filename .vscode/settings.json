@@ -17,6 +17,8 @@
     "plaintext": false,
     "yaml": false
   },
+  "eslint.enable": true,
+  "eslint.useFlatConfig": true,
   "eslint.validate": [
     "javascript",
     "typescript",
