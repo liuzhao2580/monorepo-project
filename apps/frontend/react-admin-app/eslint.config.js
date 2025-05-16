@@ -1,6 +1,8 @@
+import reactEslint from "@pmm/eslint-config/react"
 import tseslint from 'typescript-eslint'
-export default tseslint.config(
+export default tseslint.config([
+  ...reactEslint,
   {
-    extends: ['@pmm/eslint-config/react']
-  },
-)
+    rules: {}
+  }
+])

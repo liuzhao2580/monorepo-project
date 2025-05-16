@@ -3,9 +3,18 @@
   "version": "0.0.1",
   "main": "src/index.js",
   "exports": {
-    ".": "./src/index.js",
-    "./react": "./src/react/index.js",
-    "./vue": "./src/vue/index.js"
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs"
+    },
+    "./react": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs"
+    },
+    "./vue": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs"
+    }
   },
   "scripts": {
     "stub": "pnpm unbuild --stub"

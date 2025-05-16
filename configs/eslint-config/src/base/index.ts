@@ -1,21 +1,21 @@
-import tseslint from 'typescript-eslint'
-import js from '@eslint/js';
-import globals from 'globals'
+import tseslint from "typescript-eslint";
+import js from "@eslint/js";
+import globals from "globals";
 export default tseslint.config(
-  { ignores: ['dist', 'node_modules'] },
+  { ignores: ["dist", "node_modules"] },
   {
     extends: [
       js.configs.recommended,
-      ...tseslint.configs.recommended
+      ...tseslint.configs.recommended,
     ],
-    files: ['**/*.{ts,tsx,js,json}'],
+    files: ["**/*.{ts,tsx,js}"],
     languageOptions: {
       ecmaVersion: 2020,
       parser: tseslint.parser,
-      globals: globals.browser
+      globals: globals.browser,
     },
     plugins: {
-      '@typescript-eslint': tseslint.plugin,
+      "@typescript-eslint": tseslint.plugin,
     },
     rules: {
       "no-console": "off",
@@ -24,8 +24,18 @@ export default tseslint.config(
       indent: ["warn", 2, { SwitchCase: 1 }],
       eqeqeq: "warn",
       "@typescript-eslint/no-unused-vars": "error",
-      semi: ["error", "never"],
-      quotes: ["error", "double", { allowTemplateLiterals: true }],
+      // 强制语句以分号结尾
+      semi: ["error", "always"],
+      // 强制使用双引号
+      quotes: ["error", "double", { avoidEscape: true }],
+      // 多行结构的最后一个元素保留逗号
+      "comma-dangle": ["error", {
+        arrays: "always-multiline",
+        objects: "always-multiline",
+        imports: "always-multiline",
+        exports: "always-multiline",
+        functions: "never",
+      }],
       "no-unreachable": "off",
       "no-var": "error",
       "no-multi-spaces": "error",
@@ -35,13 +45,11 @@ export default tseslint.config(
       "array-bracket-spacing": ["error", "never"],
       "key-spacing": ["error", { beforeColon: false }],
       "object-curly-spacing": ["error", "always"],
-      "comma-dangle": ["error", "never"],
       "space-infix-ops": "error",
       "spaced-comment": ["error", "always"],
       "space-in-parens": ["error", "never"],
       "no-trailing-spaces": "error",
-      "@typescript-eslint/no-var-requires": "off",
-      "@typescript-eslint/no-explicit-any": "off"
+      "@typescript-eslint/no-explicit-any": "off",
     },
-  },
-)
+  }
+);

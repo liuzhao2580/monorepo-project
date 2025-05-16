@@ -11,6 +11,7 @@
     "dev:all": "concurrently \"pnpm run dev:server\" \"pnpm run dev:vue\" \"pnpm run dev:react\"",
     "clean": "node ./scripts/clean.mjs",
     "reinstall": "pnpm clean --del-lock && pnpm install",
+    "postinstall": "pnpm -r run stub --if-present",
     "catalog": "pnpx codemod pnpm/catalog"
   },
   "devDependencies": {
@@ -19,22 +20,14 @@
     "@pmm/unocss-config": "workspace:*",
     "tsup": "catalog:",
     "turbo": "catalog:",
+    "typescript": "catalog:",
+    "typescript-eslint": "^8.32.1",
+    "unbuild": "catalog:",
     "unocss": "catalog:"
   },
   "engines": {
     "node": ">=20.10.0",
     "pnpm": ">=9.12.0"
   },
-  "packageManager": "pnpm@9.12.0",
-  "pnpm": {
-    "peerDependencyRules": {
-      "allowedVersions": {
-        "eslint": "*"
-      }
-    },
-    "neverBuiltDependencies": [
-      "canvas",
-      "node-gyp"
-    ]
-  }
+  "packageManager": "pnpm@9.12.0"
 }
