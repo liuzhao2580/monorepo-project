@@ -18,6 +18,7 @@
     "@pmm/eslint-config": "workspace:*",
     "@pmm/tsconfig": "workspace:*",
     "@pmm/unocss-config": "workspace:*",
+    "sass": "catalog:",
     "tsup": "catalog:",
     "turbo": "catalog:",
     "typescript": "catalog:",

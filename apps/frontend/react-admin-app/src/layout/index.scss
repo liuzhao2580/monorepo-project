@@ -1,0 +1,65 @@
+.layout-spin {
+  >div {
+    .ant-spin-spinning {
+      max-height: 100%;
+    }
+  }
+}
+.layout-box {
+  display: flex;
+  height: 100vh;
+  .sider-box {
+    max-height: 100%;
+    overflow: auto;
+    transition: 0.3s;
+    .ant-menu-title-content {
+      user-select: none;
+    }
+  }
+  .site-layout {
+    flex: 1;
+  }
+  .header-box {
+    display: flex;
+    background-color: #fff;
+    position: relative;
+    font-size: 16px;
+    height: $layout-header-height;
+    user-select: none;
+    .trigger {
+      margin: 0 20px;
+      cursor: pointer;
+    }
+    // 面包屑
+    .breadcrumb-box {
+      user-select: none;
+      .ant-breadcrumb-link {
+        height: $layout-header-height;
+        line-height: $layout-header-height;
+      }
+    }
+    // 右上角的个人
+    .personal-box {
+      position: absolute;
+      right: 10px;
+      .personal-dropdown {
+        cursor: pointer;
+        .personal-img {
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          margin: 0 10px;
+        }
+      }
+    }
+  }
+  .content-box {
+    margin-top: 8px;
+    margin-left: 8px;
+    padding: 10px;
+    background-color: #fff;
+    max-height: calc(100vh - 64px - 20px);
+    overflow: hidden;
+    overflow-y: auto;
+  }
+}
