@@ -1,0 +1,34 @@
+{
+  "name": "@pmm/i18n",
+  "version": "0.0.1",
+  "main": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    },
+    "./react": {
+      "import": "./dist/react.mjs",
+      "require": "./dist/react.cjs"
+    },
+    "./vue": {
+      "import": "./dist/vue.mjs",
+      "require": "./dist/vue.cjs"
+    }
+  },
+  "scripts": {
+    "stub": "pnpm unbuild --stub",
+    "build": "pnpm unbuild"
+  },
+  "dependencies": {
+    "i18next": "catalog:",
+    "react": "catalog:",
+    "vue": "catalog:"
+  },
+  "devDependencies": {
+    "@types/react": "catalog:",
+    "typescript": "catalog:"
+  }
+}

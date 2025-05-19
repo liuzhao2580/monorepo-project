@@ -11,12 +11,14 @@
   },
   "dependencies": {
     "antd": "catalog:",
+    "i18next": "^25.1.3",
     "react": "catalog:",
     "react-dom": "catalog:",
     "react-router": "catalog:"
   },
   "devDependencies": {
     "@pmm/eslint-config": "workspace:*",
+    "@pmm/i18n": "workspace:*",
     "@pmm/unocss-config": "workspace:*",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",

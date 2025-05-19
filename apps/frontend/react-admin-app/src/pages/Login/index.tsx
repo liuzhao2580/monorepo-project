@@ -1,6 +1,7 @@
 import { Form, Input, Button, Checkbox, message } from "antd";
-
+import { useI18n } from "@pmm/i18n/react";
 export default function Login() {
+  const { t } = useI18n();
   const onFinish = (values: any) => {
     console.log("Success:", values);
     // 模拟登录成功提示
@@ -26,7 +27,7 @@ export default function Login() {
           layout="vertical"
         >
           <Form.Item
-            label="用户名"
+            label={t("userName")}
             name="username"
             rules={[{ required: true, message: "请输入用户名!" }]}
           >
@@ -34,7 +35,7 @@ export default function Login() {
           </Form.Item>
 
           <Form.Item
-            label="密码"
+            label={t("password")}
             name="password"
             rules={[{ required: true, message: "请输入密码!" }]}
           >
@@ -42,7 +43,7 @@ export default function Login() {
           </Form.Item>
 
           <Form.Item name="remember" valuePropName="checked" noStyle>
-            <Checkbox>记住我</Checkbox>
+            <Checkbox>{ t("rememberMe") }</Checkbox>
           </Form.Item>
 
           <Form.Item className="mt-6">

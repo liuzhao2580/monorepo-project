@@ -1,1 +1,1 @@
-export { default } from "@pmm/unocss-config"
+export { default } from "@pmm/unocss-config";

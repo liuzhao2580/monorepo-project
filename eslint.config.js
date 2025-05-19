@@ -1,5 +1,5 @@
-import base from "@pmm/eslint-config"
-import tseslint from 'typescript-eslint'
+import base from "@pmm/eslint-config";
+import tseslint from "typescript-eslint";
 export default tseslint.config([
-  ...base
-])
+  ...base,
+]);
