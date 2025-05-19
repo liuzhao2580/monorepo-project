@@ -17,7 +17,7 @@ export default function Login() {
       className="flex flex-col justify-center items-center h-screen bg-gray-100"
     >
       <div className="bg-white p-8 rounded shadow-md w-[400px]">
-        <h2 className="text-2xl mb-6 text-center font-semibold">管理系统登录</h2>
+        <h2 className="text-2xl mb-6 text-center font-semibold">{ t("title") }</h2>
         <Form
           name="login"
           initialValues={{ remember: true }}
@@ -27,7 +27,7 @@ export default function Login() {
           layout="vertical"
         >
           <Form.Item
-            label={t("userName")}
+            label={t("username")}
             name="username"
             rules={[{ required: true, message: "请输入用户名!" }]}
           >

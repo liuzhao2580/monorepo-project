@@ -1,5 +1,8 @@
 export default {
-  userName: "Username",
+  title: "Admin Login",
+  username: "Username",
   password: "Password",
-  rememberMe: "Remember me",
+  rememberMe: "Remember Me",
+  login: "Login",
+  switchLang: "中文",
 };
