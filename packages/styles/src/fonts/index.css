@@ -1,0 +1,29 @@
+@font-face {
+  font-family: 'YouSheBiaoTiHei-2';
+  src: url('./YouSheBiaoTiHei-2.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'YouSheBiaoTiHei';
+  src: url('./YouSheBiaoTiHei-2.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: "PingFangSC";
+  src: url('./PingFangSC.ttf');
+}
+
+@font-face {
+  font-family: "AlibabaPuHuiTi_3_55_Regular";
+  src: url('./AlibabaPuHuiTi-3-55-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'AlibabaPuHuiTi_3_65_Medium';
+  src: url('./AlibabaPuHuiTi-3-65-Medium.ttf')
+}
+
+@font-face {
+  font-family: 'AlibabaPuHuiTi_3_75_SemiBold';
+  src: url('./AlibabaPuHuiTi-3-75-SemiBold.ttf');
+}

@@ -17,6 +17,7 @@
     "react-router": "catalog:"
   },
   "devDependencies": {
+    "@pmm/styles": "workspace:*",
     "@pmm/eslint-config": "workspace:*",
     "@pmm/i18n": "workspace:*",
     "@pmm/unocss-config": "workspace:*",

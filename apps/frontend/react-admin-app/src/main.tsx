@@ -1,6 +1,7 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "virtual:uno.css";
+import "@pmm/styles";
 import "@/locales";
 import App from "./App.tsx";
 

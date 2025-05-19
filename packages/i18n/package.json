@@ -19,7 +19,7 @@
     }
   },
   "scripts": {
-    "stub": "pnpm unbuild --stub",
+    "stub": "pnpm unbuild",
     "build": "pnpm unbuild"
   },
   "dependencies": {

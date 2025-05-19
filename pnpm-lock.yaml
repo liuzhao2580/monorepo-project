@@ -449,6 +449,9 @@ importers:
       '@pmm/i18n':
         specifier: workspace:*
         version: link:../../../packages/i18n
+      '@pmm/styles':
+        specifier: workspace:*
+        version: link:../../../packages/styles
       '@pmm/unocss-config':
         specifier: workspace:*
         version: link:../../../configs/unocss-config
@@ -617,6 +620,8 @@ importers:
         version: 5.8.3
 
   packages/shared: {}
+
+  packages/styles: {}
 
   packages/types: {}
 
