@@ -17,6 +17,7 @@
   },
   "devDependencies": {
     "@changesets/cli": "catalog:",
+    "@pmm/prettier-config": "workspace:*",
     "@pmm/eslint-config": "workspace:*",
     "@pmm/tsconfig": "workspace:*",
     "@pmm/unocss-config": "workspace:*",

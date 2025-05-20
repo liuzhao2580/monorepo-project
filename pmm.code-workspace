@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "./apps/frontend/react-admin-app"
+		}
+	],
+	"settings": {
+		"explorer.fileNesting.expand": false,
+		"github.copilot.enable": {
+			"*": true,
+			"markdown": true,
+			"plaintext": false,
+			"yaml": false
+		}
+	}
+}

@@ -4,7 +4,7 @@ import react from "@vitejs/plugin-react";
 import UnoCSS from "unocss/vite";
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(), UnoCSS()],
+  plugins: [UnoCSS(), react()],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "src"),

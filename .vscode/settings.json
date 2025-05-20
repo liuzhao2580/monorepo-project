@@ -11,12 +11,14 @@
     "eslint.config.mjs": ".eslintignore,.prettierignore,.stylelintignore,.commitlintrc.*,.prettierrc.*,stylelint.config.*,.lintstagedrc.mjs,cspell.json,lefthook.yml",
     "tailwind.config.mjs": "postcss.*"
   },
+
   "github.copilot.enable": {
     "*": true,
     "markdown": true,
     "plaintext": false,
     "yaml": false
   },
+  // eslint
   "eslint.enable": true,
   "eslint.useFlatConfig": true,
   "eslint.validate": [
@@ -31,4 +33,7 @@
     "jsonc",
     "json5"
   ],
+  // prettier
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true
 }
