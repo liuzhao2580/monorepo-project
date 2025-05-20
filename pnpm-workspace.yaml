@@ -3,6 +3,7 @@ packages:
   - apps/backend/**
   - apps/frontend/**
   - packages/*
+  - docs
 catalog:
   "@ant-design/icons": ^6.0.0
   "@changesets/cli": ^2.29.4
@@ -97,6 +98,7 @@ catalog:
   unbuild: ^3.5.0
   unocss: ^66.1.2
   vite: ^6.3.5
+  vitepress: ^1.6.3
   vue: ^3.4.21
   vue-i18n: ^9.1.9
   vue-tsc: ^1.0.24
