@@ -10,13 +10,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@ant-design/icons": "^6.0.0",
+    "@ant-design/icons": "catalog:",
     "antd": "catalog:",
     "dayjs": "catalog:",
-    "echarts": "^5.6.0",
+    "echarts": "catalog:",
     "i18next": "catalog:",
-    "mobx": "^6.13.7",
-    "mobx-react-lite": "^4.1.0",
+    "mobx": "catalog:",
+    "mobx-react-lite": "catalog:",
     "react": "catalog:",
     "react-dom": "catalog:",
     "react-router": "catalog:"
