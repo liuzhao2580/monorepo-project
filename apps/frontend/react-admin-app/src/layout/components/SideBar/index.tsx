@@ -8,7 +8,7 @@ import { routerList } from "@/router/RouteList";
 import { appStore } from "@/store/app";
 import { observer } from "mobx-react-lite";
 const { Sider } = Layout;
-type MenuItem = Required<MenuProps>["items"][number]
+type MenuItem = Required<MenuProps>["items"][number];
 
 function getItem(
   label: React.ReactNode,
@@ -26,7 +26,7 @@ function getItem(
   } as MenuItem;
 }
 
-const SideBar = observer(()=> {
+const SideBar = observer(() => {
   const navigate = useNavigate();
   const location = useLocation();
   const { sideStatus } = appStore;
@@ -55,7 +55,14 @@ const SideBar = observer(()=> {
           if (!element.children) {
             menuItemsChild.push(getItem(element.meta.title, element.path, handleIcon(element)));
           } else if (element.children) {
-            menuItemsChild.push(getItem(element.meta.title, element.path, handleIcon(element), getMenu(element.children)));
+            menuItemsChild.push(
+              getItem(
+                element.meta.title,
+                element.path,
+                handleIcon(element),
+                getMenu(element.children)
+              )
+            );
           }
         }
       }
@@ -64,7 +71,7 @@ const SideBar = observer(()=> {
   };
 
   /** 处理侧边栏图标 */
-  const handleIcon = item => {
+  const handleIcon = (item) => {
     if (typeof item.meta.icon === "string") {
       return <CustomIconCom iconPath={item.meta.icon} />;
     } else {
@@ -77,13 +84,7 @@ const SideBar = observer(()=> {
     navigate(key);
   };
   return (
-    <Sider
-      className="sider-box"
-      trigger={null}
-      collapsible
-      collapsed={sideStatus}
-      theme="light"
-    >
+    <Sider className="sider-box" trigger={null} collapsible collapsed={sideStatus} theme="light">
       <div className="logo" />
       <Menu
         theme="light"
@@ -92,8 +93,7 @@ const SideBar = observer(()=> {
         onClick={MenuClick}
         defaultOpenKeys={defaultOpenKeys}
         items={menuItems}
-      >
-      </Menu>
+      ></Menu>
     </Sider>
   );
 });

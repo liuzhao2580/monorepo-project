@@ -23,7 +23,7 @@ export default function Login() {
         <div className="hidden md:block lg:w-3/5 sm:w-1/2 bg-cover bg-center" />
         <div className="relative flex flex-col justify-center items-center w-full lg:w-2/5 sm:w-full ">
           <div className="bg-white p-8 rounded shadow-md w-full max-w-[360px] mx-4">
-            <h2 className="text-2xl mb-6 text-center font-semibold">{t("title")}</h2>
+            <h2 className="text-2xl mb-6 text-center font-semibold">{t("login.title")}</h2>
             <Form
               name="login"
               initialValues={{ remember: true }}
@@ -32,42 +32,42 @@ export default function Login() {
               layout="vertical"
             >
               <Form.Item
-                label={t("username")}
+                label={t("login.username")}
                 name="username"
-                rules={[{ required: true, message: t("username_required") }]}
+                rules={[{ required: true, message: t("login.username_required") }]}
               >
-                <Input placeholder={t("username_placeholder")} />
+                <Input placeholder={t("login.username_placeholder")} />
               </Form.Item>
 
               <Form.Item
-                label={t("password")}
+                label={t("login.password")}
                 name="password"
-                rules={[{ required: true, message: t("password_required") }]}
+                rules={[{ required: true, message: t("login.password_required") }]}
               >
-                <Input.Password placeholder={t("password_placeholder")} />
+                <Input.Password placeholder={t("login.password_placeholder")} />
               </Form.Item>
 
               <Form.Item name="remember" valuePropName="checked" noStyle>
-                <Checkbox>{t("rememberMe")}</Checkbox>
+                <Checkbox>{t("login.rememberMe")}</Checkbox>
               </Form.Item>
 
               <Form.Item className="mt-6">
                 <Button type="primary" htmlType="submit" block>
-                  {t("login")}
+                  {t("login.login")}
                 </Button>
               </Form.Item>
             </Form>
             <div>
               <div className="flex justify-between items-center mt-4">
                 <a href="/register" className="text-sm text-blue-500 hover:underline">
-                  {t("register")}
+                  {t("login.register")}
                 </a>
                 <a href="/forgot-password" className="text-sm text-blue-500 hover:underline">
-                  {t("forgotPassword")}
+                  {t("login.forgotPassword")}
                 </a>
               </div>
               <div className="text-center mt-2">
-                <span className="text-sm cursor-pointer">{t("switchLang")}</span>
+                <span className="text-sm cursor-pointer">{t("login.switchLang")}</span>
               </div>
             </div>
           </div>

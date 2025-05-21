@@ -9,9 +9,7 @@ const BreadcrumbDom = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const pathname = location.pathname;
-  const [breadcrumbArr, setBreadcrumbArr] = useState<any[]>(
-    () => []
-  );
+  const [breadcrumbArr, setBreadcrumbArr] = useState<any[]>(() => []);
   // 获取当前的路由
   useEffect(() => {
     breadcrumbChange(pathname);
@@ -35,10 +33,7 @@ const BreadcrumbDom = () => {
             if (findBreadcrumb(item.path)) getRouters.push(item);
           }
         } else {
-          if (
-            findBreadcrumb(item.path) &&
-            item.meta?.breadcrumbShowFlag !== false
-          ) {
+          if (findBreadcrumb(item.path) && item.meta?.breadcrumbShowFlag !== false) {
             getRouters.push(item);
           }
           routerLoop(item.children);
@@ -67,12 +62,10 @@ const BreadcrumbDom = () => {
             </span>
           ),
         },
-        ...breadcrumbArr.map(breadcrumb => {
+        ...breadcrumbArr.map((breadcrumb) => {
           return {
             onClick: () =>
-              breadcrumbClick(
-                breadcrumb.redirect ? breadcrumb.redirect : breadcrumb.path
-              ),
+              breadcrumbClick(breadcrumb.redirect ? breadcrumb.redirect : breadcrumb.path),
             title: (
               <span className="breadcrumb-child-item">
                 <span>{breadcrumb.meta?.title}</span>

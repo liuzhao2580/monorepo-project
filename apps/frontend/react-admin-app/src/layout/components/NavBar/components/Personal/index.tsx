@@ -1,12 +1,8 @@
 import { Badge, Dropdown } from "antd";
 import type { MenuProps } from "antd";
-import {
-  DownOutlined,
-  UserOutlined,
-  ExportOutlined,
-  BellOutlined,
-} from "@ant-design/icons";
+import { DownOutlined, UserOutlined, ExportOutlined, BellOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router";
+import { useI18n } from "@pmm/i18n/react";
 import { clearLoginData } from "@/utils";
 import { userStore } from "@/store/user";
 import { ROUTE_PATH } from "@/router/RouteConst";
@@ -16,8 +12,9 @@ import { appStore } from "@/store/app";
 import "./index.scss";
 const Personal = observer(() => {
   const navigate = useNavigate();
+  const { t } = useI18n();
   // 点击 菜单项
-  const menuClick: MenuProps["onClick"] = e => {
+  const menuClick: MenuProps["onClick"] = (e) => {
     const { key } = e;
     switch (key) {
       // 个人中心
@@ -42,7 +39,7 @@ const Personal = observer(() => {
       label: (
         <span>
           <UserOutlined />
-          <span>个人中心</span>
+          <span>{t("layout.personalCenter")}</span>
         </span>
       ),
     },
@@ -54,7 +51,7 @@ const Personal = observer(() => {
       label: (
         <span>
           <ExportOutlined />
-          <span>退出登录</span>
+          <span>{t("layout.logout")}</span>
         </span>
       ),
     },
@@ -70,36 +67,23 @@ const Personal = observer(() => {
   return (
     <div className="personal-box">
       <div id="personal-box-icon">
-        <div
-          className={`icon-tip ${appStore.messageCount && "message-animation"}`}
-        >
+        <div className={`icon-tip ${appStore.messageCount && "message-animation"}`}>
           <Dropdown
             placement="bottom"
-            dropdownRender={MessageDropdown}
+            popupRender={MessageDropdown}
             onOpenChange={messageDropOpen}
-            getPopupContainer={()=> document.getElementById("personal-box-icon") as HTMLElement}
+            getPopupContainer={() => document.getElementById("personal-box-icon") as HTMLElement}
           >
-            <Badge
-              size="small"
-              count={appStore.messageCount}
-              overflowCount={10}
-            >
+            <Badge size="small" count={appStore.messageCount} overflowCount={10}>
               <BellOutlined />
             </Badge>
           </Dropdown>
         </div>
       </div>
       <Dropdown menu={{ items, onClick: menuClick }} trigger={["hover"]}>
-        <div
-          className="personal-dropdown"
-          style={{ display: "flex", alignItems: "center" }}
-        >
+        <div className="personal-dropdown" style={{ display: "flex", alignItems: "center" }}>
           <span className="personal-name">Hi~</span>
-          <img
-            className="personal-img"
-            src={userStore.userInfo.avatar}
-            alt=""
-          />
+          <img className="personal-img" src={userStore.userInfo.avatar} alt="" />
           <DownOutlined />
         </div>
       </Dropdown>

@@ -12,6 +12,8 @@
   "dependencies": {
     "@ant-design/icons": "catalog:",
     "antd": "catalog:",
+    "axios": "catalog:",
+    "cropperjs": "catalog:",
     "dayjs": "catalog:",
     "echarts": "catalog:",
     "i18next": "catalog:",
@@ -23,6 +25,7 @@
   },
   "devDependencies": {
     "@pmm/eslint-config": "workspace:*",
+    "@pmm/types": "workspace:*",
     "@pmm/i18n": "workspace:*",
     "@pmm/styles": "workspace:*",
     "@pmm/unocss-config": "workspace:*",

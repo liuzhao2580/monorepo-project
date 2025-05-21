@@ -1,9 +1,8 @@
-import { createBrowserRouter, redirect } from "react-router";
+import { createBrowserRouter, redirect, type RouteObject } from "react-router";
 import Layout from "@/layout/index";
 import Login from "@/pages/Login/index";
-import Settings from "@/pages/Settings/index";
-import Dashboard from "@/pages/Dashboard/index";
-import { ROUTE_PATH } from "./RouteConst";
+import Error404Page from "@/pages/ErrorPage/404_page";
+import { routerList } from "./RouteList";
 // 登录拦截器：所有 protected 路由的 loader 使用它
 const requireAuth = () => {
   const isLoggedIn = localStorage.getItem("token") === "ok";
@@ -11,7 +10,7 @@ const requireAuth = () => {
   return null;
 };
 
-const routes = [
+const routes: RouteObject[] = [
   {
     path: "/login",
     element: <Login />,
@@ -20,17 +19,11 @@ const routes = [
     path: "/",
     loader: requireAuth,
     element: <Layout />,
-    children: [
-      {
-        path: ROUTE_PATH.DASHBOARD,
-        index: true,
-        element: <Dashboard />,
-      },
-      {
-        path: "settings",
-        element: <Settings />,
-      },
-    ],
+    children: [...routerList],
+  },
+  {
+    path: "*",
+    element: <Error404Page />,
   },
 ];
 

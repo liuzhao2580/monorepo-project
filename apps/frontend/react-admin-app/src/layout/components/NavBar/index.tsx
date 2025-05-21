@@ -2,7 +2,7 @@ import { Layout } from "antd";
 import { MenuUnfoldOutlined, MenuFoldOutlined } from "@ant-design/icons";
 import { observer } from "mobx-react-lite";
 import { appStore } from "@/store/app";
-import Breadcrumb from "./components/Breadcrumb";
+import Breadcrumb from "./components/Breadcrumb/index";
 import Personal from "./components/Personal/index";
 import "./index.scss";
 const { Header } = Layout;
