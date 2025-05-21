@@ -3,23 +3,25 @@
 layout: home
 
 hero:
-  name: "My Awesome Project"
-  text: "A VitePress Site"
-  tagline: My great project tagline
+  name: "快速入门"
+  text: "Vue React NestJS\n项目说明"
+  tagline: "帮助快速了解，项目的基本情况"
+  image:
+    src: /images/common/VitePress.png
+    alt: VitePress
   actions:
     - theme: brand
-      text: Markdown Examples
-      link: /markdown-examples
-    - theme: alt
-      text: API Examples
-      link: /api-examples
+      text: 快速上手 ☛
+      link: /start/quick-start
 
 features:
-  - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  - title: NestJS
+    icon: { src: /images/icon/NestJs.svg }
+    details: 基于NestJS开发的后端接口
+  - title: Vue
+    icon: { src: /images/icon/Vue.svg }
+    details: 基于Vue开发的前端H5项目
+  - title: React
+    icon: { src: /images/icon/React.svg }
+    details: 基于React开发的后端管理系统
 ---
-

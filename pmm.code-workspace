@@ -1,16 +1,21 @@
 {
-	"folders": [
-		{
-			"path": "./apps/frontend/react-admin-app"
-		}
-	],
-	"settings": {
-		"explorer.fileNesting.expand": false,
-		"github.copilot.enable": {
-			"*": true,
-			"markdown": true,
-			"plaintext": false,
-			"yaml": false
-		}
-	}
+  "folders": [
+    {
+      "path": "./apps/frontend/react-admin-app",
+    },
+    {
+      "path": "./docs",
+    },
+  ],
+  "settings": {
+    "editor.formatOnSave": true,
+    // 使用 ESLint 修复而不是 Prettier 单独修复（推荐）
+    "editor.codeActionsOnSave": {
+      "source.fixAll": "always",
+      "source.fixAll.eslint": "always",
+    },
+    "eslint.validate": ["javascript", "typescript", "vue"],
+    // 避免 Prettier 和 ESLint 冲突时重复格式化
+    "prettier.enable": false,
+  },
 }

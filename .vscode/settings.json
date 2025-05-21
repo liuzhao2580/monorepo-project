@@ -35,5 +35,12 @@
   ],
   // prettier
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.formatOnSave": true
+  "editor.formatOnSave": true,
+  // 使用 ESLint 修复而不是 Prettier 单独修复（推荐）
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "always",
+    "source.fixAll.eslint": "always"
+  },
+  // 避免 Prettier 和 ESLint 冲突时重复格式化
+  "prettier.enable": false
 }
