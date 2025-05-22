@@ -1,14 +1,13 @@
 import { useState, useMemo } from "react";
 import { useNavigate, useLocation } from "react-router";
-import { Layout, Menu } from "antd";
+import { Menu } from "antd";
 import type { MenuProps } from "antd";
 
 import CustomIconCom from "@/components/CustomIcon/index";
 import { routerList } from "@/router/RouteList";
-import { appStore } from "@/store/app";
 import { observer } from "mobx-react-lite";
 import type { IRouterList } from "@/types/router";
-const { Sider } = Layout;
+import { PawPrintIcon } from "lucide-react";
 type MenuItem = Required<MenuProps>["items"][number];
 
 function getItem(
@@ -27,10 +26,9 @@ function getItem(
   } as MenuItem;
 }
 
-const SideBar = observer(() => {
+const HeaderMenu = observer(() => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { sideStatus } = appStore;
   // 默认选择的侧边栏 当前选中的菜单项 key 数组
   const [selectedKeys, setSelectenMenu] = useState(["/dashboard"]);
 
@@ -87,18 +85,18 @@ const SideBar = observer(() => {
     navigate(key);
   };
   return (
-    <Sider className="sider-box" trigger={null} collapsible collapsed={sideStatus} theme="light">
-      <div className="logo" />
+    <div className="flex">
+      <PawPrintIcon size={40} />
       <Menu
         theme="light"
         selectedKeys={selectedKeys}
-        mode="inline"
+        mode="horizontal"
         onClick={MenuClick}
         defaultOpenKeys={defaultOpenKeys}
         items={menuItems}
       ></Menu>
-    </Sider>
+    </div>
   );
 });
 
-export default SideBar;
+export default HeaderMenu;

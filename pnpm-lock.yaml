@@ -499,6 +499,9 @@ importers:
       i18next:
         specifier: 'catalog:'
         version: 25.2.0(typescript@5.8.3)
+      lucide-react:
+        specifier: ^0.511.0
+        version: 0.511.0(react@18.3.1)
       mobx:
         specifier: 'catalog:'
         version: 6.13.7
@@ -5508,6 +5511,11 @@ packages:
   lru.min@1.1.2:
     resolution: {integrity: sha512-Nv9KddBcQSlQopmBHXSsZVY5xsdlZkdH/Iey0BlcBYggMd4two7cZnKOK9vmy3nY0O5RGH99z1PCeTpPqszUYg==}
     engines: {bun: '>=1.0.0', deno: '>=1.30.0', node: '>=8.0.0'}
+
+  lucide-react@0.511.0:
+    resolution: {integrity: sha512-VK5a2ydJ7xm8GvBeKLS9mu1pVK6ucef9780JVUjw6bAjJL/QXnd4Y0p7SPeOUMC27YhzNCZvm5d/QX0Tp3rc0w==}
+    peerDependencies:
+      react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
   lucide@0.367.0:
     resolution: {integrity: sha512-8G6e5c74SgM+mqnaWXaouoG5VoEqvijvPwz9tVuFtfeJcuQ1cWQRPWrCRDKMYsE2lMW9Sh9+csy0O6OypKJeSw==}
@@ -13996,6 +14004,10 @@ snapshots:
   lru-cache@7.18.3: {}
 
   lru.min@1.1.2: {}
+
+  lucide-react@0.511.0(react@18.3.1):
+    dependencies:
+      react: 18.3.1
 
   lucide@0.367.0: {}
 

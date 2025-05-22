@@ -24,6 +24,10 @@ export const routerList: Array<IRouterList> = [
     meta: { icon: HomeOutlined, title: ROUTE_TITLE.DASHBOARD },
     Component: Dashboard,
   },
+  // 租房rental housing
+  {
+    path: ROUTE_PATH.DOCUMENT,
+  },
   // 个人中心页面
   {
     path: ROUTE_PATH.PERSONAL,

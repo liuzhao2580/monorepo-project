@@ -1,17 +1,14 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { redirect } from "react-router";
-import { Layout, Spin } from "antd";
+import { Layout } from "antd";
 import "./index.scss";
-import SiderDom from "./components/SideBar";
-import NavBarDom from "./components/NavBar/";
+import LayoutHeader from "./components/Header";
+import LayoutFooter from "./components/Footer";
 import ContentDom from "./components/Content";
-import { TokenExpiredToLogin, LoadingUserInfo } from "./components/Common";
 import resizeMethods from "../utils/modules/onResize";
 import { ROUTE_PATH } from "@/router/RouteConst";
-
 const LayoutDom = () => {
   redirect(ROUTE_PATH.DASHBOARD);
-  const [loading, setLoading] = useState(true);
   useEffect(() => {
     resizeMethods.onResize();
     resizeMethods.listenResize();
@@ -21,21 +18,11 @@ const LayoutDom = () => {
   }, []);
 
   return (
-    <Spin spinning={loading} wrapperClassName="layout-spin">
-      <LoadingUserInfo setLoading={setLoading}></LoadingUserInfo>
-      <div className="layout-box">
-        {/* 侧边栏 */}
-        <SiderDom />
-        {/* 右边内容区域 */}
-        <Layout className="site-layout">
-          {/* 头部 */}
-          <NavBarDom />
-          {/* 内容区域 */}
-          <ContentDom></ContentDom>
-        </Layout>
-        <TokenExpiredToLogin></TokenExpiredToLogin>
-      </div>
-    </Spin>
+    <Layout className="layout-box">
+      <LayoutHeader></LayoutHeader>
+      <ContentDom></ContentDom>
+      <LayoutFooter></LayoutFooter>
+    </Layout>
   );
 };
 
