@@ -7,6 +7,7 @@ import CustomIconCom from "@/components/CustomIcon/index";
 import { routerList } from "@/router/RouteList";
 import { appStore } from "@/store/app";
 import { observer } from "mobx-react-lite";
+import type { IRouterList } from "@/types/router";
 const { Sider } = Layout;
 type MenuItem = Required<MenuProps>["items"][number];
 
@@ -50,7 +51,7 @@ const SideBar = observer(() => {
     const menuItemsChild: MenuItem[] = [];
     for (let index = 0; index < routerArr.length; index++) {
       const element = routerArr[index];
-      if (element.meta) {
+      if (element && element.meta) {
         if (!element.meta.hidden) {
           if (!element.children) {
             menuItemsChild.push(getItem(element.meta.title, element.path, handleIcon(element)));
@@ -71,16 +72,18 @@ const SideBar = observer(() => {
   };
 
   /** 处理侧边栏图标 */
-  const handleIcon = (item) => {
-    if (typeof item.meta.icon === "string") {
-      return <CustomIconCom iconPath={item.meta.icon} />;
-    } else {
-      return <item.meta.icon />;
+  const handleIcon = (item: IRouterList) => {
+    if (item.meta && item.meta.icon) {
+      if (typeof item.meta.icon === "string") {
+        return <CustomIconCom iconPath={item.meta.icon} />;
+      } else {
+        return <item.meta.icon />;
+      }
     }
   };
   menuItems = getMenu();
   // 点击侧边栏跳转
-  const MenuClick = ({ key }) => {
+  const MenuClick = ({ key }: any) => {
     navigate(key);
   };
   return (

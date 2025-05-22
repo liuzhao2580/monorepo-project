@@ -7,7 +7,6 @@
     "start": "node dist/index.js"
   },
   "dependencies": {
-    "@pmm/shared": "workspace:*",
     "@hono/node-server": "catalog:",
     "hono": "catalog:"
   },

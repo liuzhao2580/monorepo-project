@@ -25,6 +25,7 @@
   },
   "devDependencies": {
     "@pmm/eslint-config": "workspace:*",
+    "@pmm/icons": "workspace:*",
     "@pmm/types": "workspace:*",
     "@pmm/i18n": "workspace:*",
     "@pmm/styles": "workspace:*",

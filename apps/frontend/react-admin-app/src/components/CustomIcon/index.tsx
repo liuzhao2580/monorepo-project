@@ -1,7 +1,7 @@
 import { type FC } from "react";
 import "./index.scss";
 interface ICustom {
-  iconPath: string
+  iconPath: string;
 }
 
 /** 自定义的菜单 icon  */

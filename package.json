@@ -6,10 +6,6 @@
   "license": "MIT",
   "scripts": {
     "changeset": "pnpm exec changeset",
-    "dev:server": "pnpm --filter server dev",
-    "dev:vue": "pnpm --filter vue-app dev",
-    "dev:react": "pnpm --filter react-admin-app dev",
-    "dev:all": "concurrently \"pnpm run dev:server\" \"pnpm run dev:vue\" \"pnpm run dev:react\"",
     "clean": "node ./scripts/clean.mjs",
     "reinstall": "pnpm clean --del-lock && pnpm install",
     "postinstall": "pnpm -r run stub --if-present",

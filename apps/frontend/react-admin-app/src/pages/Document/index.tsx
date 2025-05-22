@@ -1,35 +1,35 @@
-import "./index.scss"
-import { List, Card, Image } from "antd"
-const { Meta } = Card
+import "./index.scss";
+import { List, Card, Image } from "antd";
+const { Meta } = Card;
 
 const Document = () => {
   const documentList = [
     {
       url: "https://react.docschina.org/",
-      img: new URL("@/assets/images/svg/React.svg", import.meta.url).href,
-      title: "React"
+      img: new URL("@/assets/svg/React.svg", import.meta.url).href,
+      title: "React",
     },
     {
-      url: "https://ant-design.gitee.io/components/overview-cn/",
+      url: "https://ant-design.antgroup.com/index-cn",
       img: "https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg",
-      title: "Ant Design"
+      title: "Ant Design",
     },
     {
       url: "https://blog.csdn.net/weixin_43972992?type=blog",
       img: "https://fastly.jsdelivr.net/npm/lz-npm-assets/images/gkd.gif",
-      title: "CSND博客地址"
+      title: "CSND博客地址",
     },
     {
       url: "https://gitee.com/liuzhao2580",
-      img: new URL("@/assets/images/svg/Gitee.svg", import.meta.url).href,
-      title: "码云"
+      img: new URL("@/assets/svg/Gitee.svg", import.meta.url).href,
+      title: "码云",
     },
     {
       url: "https://github.com/liuzhao2580",
-      img: new URL("@/assets/images/svg/Github.svg", import.meta.url).href,
-      title: "Github"
-    }
-  ]
+      img: new URL("@/assets/svg/Github.svg", import.meta.url).href,
+      title: "Github",
+    },
+  ];
   return (
     <List
       grid={{
@@ -39,10 +39,10 @@ const Document = () => {
         md: 2,
         lg: 2,
         xl: 4,
-        xxl: 4
+        xxl: 4,
       }}
       dataSource={documentList}
-      renderItem={item => (
+      renderItem={(item) => (
         <List.Item>
           <Card
             style={{ cursor: "pointer", textAlign: "center" }}
@@ -55,7 +55,7 @@ const Document = () => {
                   width: "200px",
                   height: "200px",
                   display: "inline-table",
-                  marginTop: 20
+                  marginTop: 20,
                 }}
                 alt="example"
                 src={item.img}
@@ -67,7 +67,7 @@ const Document = () => {
         </List.Item>
       )}
     ></List>
-  )
-}
+  );
+};
 
-export default Document
+export default Document;

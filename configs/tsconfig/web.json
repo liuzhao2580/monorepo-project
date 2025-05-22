@@ -3,14 +3,18 @@
   "display": "Web Package",
   "extends": "./base.json",
   "compilerOptions": {
-    "lib": ["ESNext", "DOM", "DOM.Iterable"],
+    "lib": [
+      "ESNext",
+      "DOM",
+      "DOM.Iterable"
+    ],
     "moduleResolution": "bundler",
     "declaration": false,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"],
-      "@pmm/shared":["packages/shared/src"],
-      "@pmm/shared/*":["packages/shared/src/*"]
+      "@/*": [
+        "src/*"
+      ]
     }
   }
 }

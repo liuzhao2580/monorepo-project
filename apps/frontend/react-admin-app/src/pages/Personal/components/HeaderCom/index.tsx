@@ -1,4 +1,4 @@
-import type { IUserBaseInfo } from "@/types/interface/user";
+import type { IUserBaseInfo } from "@/types/user";
 import ChangeAvatarCom from "./ChangeAvatarCom";
 interface ICom {
   userInfo: IUserBaseInfo;
