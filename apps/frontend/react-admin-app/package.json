@@ -27,13 +27,14 @@
   "devDependencies": {
     "@pmm/eslint-config": "workspace:*",
     "@pmm/i18n": "workspace:*",
-    "@pmm/icons": "workspace:*",
     "@pmm/styles": "workspace:*",
     "@pmm/types": "workspace:*",
     "@pmm/unocss-config": "workspace:*",
+    "@svgr/core": "^8.1.0",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
     "@vitejs/plugin-react": "catalog:",
-    "vite": "catalog:"
+    "vite": "catalog:",
+    "vite-plugin-svgr": "^4.3.0"
   }
 }

@@ -2,9 +2,9 @@ import { useState, useEffect, type FC } from "react";
 import CustomIconCom from "../CustomIcon";
 import "./index.scss";
 interface IProps {
-  iconClick(icon: string): void
+  iconClick(icon: string): void;
 }
-const IconList: FC<IProps> = props => {
+const IconList: FC<IProps> = (props) => {
   const [iconList, setIconList] = useState<string[]>([]);
 
   useEffect(() => {
@@ -31,7 +31,7 @@ const IconList: FC<IProps> = props => {
 
   return (
     <ul className="icon-list-box">
-      {iconList.map(iconName => {
+      {iconList.map((iconName) => {
         return (
           <li key={iconName} onClick={() => iconClick(iconName)}>
             <CustomIconCom iconPath={iconName}></CustomIconCom>

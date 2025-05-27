@@ -1,5 +1,4 @@
 import { type FC } from "react";
-import "./index.scss";
 interface ICustom {
   iconPath: string;
 }
@@ -7,7 +6,14 @@ interface ICustom {
 /** 自定义的菜单 icon  */
 const CustomIconCom: FC<ICustom> = ({ iconPath }) => {
   return (
-    <svg className="icon custom-svg" aria-hidden="true">
+    <svg
+      className="icon"
+      style={{
+        width: "2rem",
+        height: "2rem",
+      }}
+      aria-hidden="true"
+    >
       <use xlinkHref={`#icon-${iconPath}`} />
     </svg>
   );

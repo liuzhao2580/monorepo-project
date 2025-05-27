@@ -6,6 +6,8 @@ export const ROUTE_PATH = {
   DASHBOARD: "/dashboard",
   /** 个人中心 */
   PERSONAL: "/personal",
+  /** 租房 */
+  RENTAL_HOUSING: "/rental-housing",
   /** 文档 */
   DOCUMENT: "/document",
   /** 权限 */
@@ -45,6 +47,8 @@ export const ROUTE_TITLE = {
   DASHBOARD: "首页",
   /** 个人中心 */
   PERSONAL: "个人中心",
+  /** 租房 */
+  RENTAL_HOUSING: "租房",
   /** 文档 */
   DOCUMENT: "文档",
   /** 权限 */

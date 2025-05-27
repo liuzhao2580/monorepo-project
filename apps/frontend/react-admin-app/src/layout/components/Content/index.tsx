@@ -1,11 +1,9 @@
-import { Layout } from "antd";
 import { Outlet } from "react-router";
-const { Content } = Layout;
 const ContentDom = () => {
   return (
-    <Content className="content-box">
+    <div className="border-radius-base">
       <Outlet></Outlet>
-    </Content>
+    </div>
   );
 };
 export default ContentDom;

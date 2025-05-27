@@ -1,13 +1,11 @@
-import { Layout } from "antd";
 import { observer } from "mobx-react-lite";
 import Personal from "./Personal/index";
-const { Header } = Layout;
 const NavBar = observer(() => {
   return (
-    <Header style={{ padding: 0 }} className="header-box">
+    <div className="flex justify-end items-center h-full px-4 text-white">
       {/* 头像下拉框 */}
       <Personal></Personal>
-    </Header>
+    </div>
   );
 });
 export default NavBar;

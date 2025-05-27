@@ -2,8 +2,10 @@ import { useState, useMemo } from "react";
 import { useNavigate, useLocation } from "react-router";
 import { Menu } from "antd";
 import type { MenuProps } from "antd";
+import Icon from "@ant-design/icons";
 
 import CustomIconCom from "@/components/CustomIcon/index";
+import RentalHousingIcon from "@/assets/layout/公租房.svg";
 import { routerList } from "@/router/RouteList";
 import { observer } from "mobx-react-lite";
 import type { IRouterList } from "@/types/router";
@@ -73,7 +75,7 @@ const HeaderMenu = observer(() => {
   const handleIcon = (item: IRouterList) => {
     if (item.meta && item.meta.icon) {
       if (typeof item.meta.icon === "string") {
-        return <CustomIconCom iconPath={item.meta.icon} />;
+        // return <Icon component={RentalHousingIcon} />;
       } else {
         return <item.meta.icon />;
       }
@@ -85,15 +87,16 @@ const HeaderMenu = observer(() => {
     navigate(key);
   };
   return (
-    <div className="flex">
-      <PawPrintIcon size={40} />
+    <div className="flex w-full">
+      <PawPrintIcon className="font-color-primary w-1/3" size={40} />
       <Menu
-        theme="light"
+        theme="dark"
         selectedKeys={selectedKeys}
         mode="horizontal"
         onClick={MenuClick}
         defaultOpenKeys={defaultOpenKeys}
         items={menuItems}
+        className="flex-1"
       ></Menu>
     </div>
   );

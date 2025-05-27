@@ -75,7 +75,7 @@ const Personal = observer(() => {
             getPopupContainer={() => document.getElementById("personal-box-icon") as HTMLElement}
           >
             <Badge size="small" count={appStore.messageCount} overflowCount={10}>
-              <BellOutlined />
+              <BellOutlined className="font-color-base" />
             </Badge>
           </Dropdown>
         </div>
