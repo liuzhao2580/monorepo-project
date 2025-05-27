@@ -30,7 +30,7 @@ export interface IMeta {
   /** 侧边栏的名称 */
   title: string;
   /** 侧边栏的图标 */
-  icon?: ComponentType | string;
+  icon?: ComponentType;
   /** 用户的权限
    * 如果没有设置,则代表所有的权限均可以访问
    */

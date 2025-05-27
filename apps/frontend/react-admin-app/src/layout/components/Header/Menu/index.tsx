@@ -3,9 +3,6 @@ import { useNavigate, useLocation } from "react-router";
 import { Menu } from "antd";
 import type { MenuProps } from "antd";
 import Icon from "@ant-design/icons";
-
-import CustomIconCom from "@/components/CustomIcon/index";
-import RentalHousingIcon from "@/assets/layout/公租房.svg";
 import { routerList } from "@/router/RouteList";
 import { observer } from "mobx-react-lite";
 import type { IRouterList } from "@/types/router";
@@ -74,11 +71,7 @@ const HeaderMenu = observer(() => {
   /** 处理侧边栏图标 */
   const handleIcon = (item: IRouterList) => {
     if (item.meta && item.meta.icon) {
-      if (typeof item.meta.icon === "string") {
-        // return <Icon component={RentalHousingIcon} />;
-      } else {
-        return <item.meta.icon />;
-      }
+      return <Icon component={item.meta.icon} />;
     }
   };
   menuItems = getMenu();
@@ -87,7 +80,7 @@ const HeaderMenu = observer(() => {
     navigate(key);
   };
   return (
-    <div className="flex w-full">
+    <div className="flex items-center w-full">
       <PawPrintIcon className="font-color-primary w-1/3" size={40} />
       <Menu
         theme="dark"

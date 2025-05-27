@@ -6,6 +6,7 @@ import "virtual:uno.css";
 import "dayjs/locale/zh-cn";
 import "@pmm/styles";
 import "@/locales";
+import "@/styles/index.css";
 import App from "./App.tsx";
 
 createRoot(document.getElementById("root")!).render(

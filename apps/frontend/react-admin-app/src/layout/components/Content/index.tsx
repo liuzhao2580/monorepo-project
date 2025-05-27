@@ -1,9 +1,5 @@
 import { Outlet } from "react-router";
 const ContentDom = () => {
-  return (
-    <div className="border-radius-base">
-      <Outlet></Outlet>
-    </div>
-  );
+  return <Outlet></Outlet>;
 };
 export default ContentDom;

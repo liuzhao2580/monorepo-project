@@ -17,7 +17,7 @@
     "dayjs": "catalog:",
     "echarts": "catalog:",
     "i18next": "catalog:",
-    "lucide-react": "^0.511.0",
+    "lucide-react": "catalog:",
     "mobx": "catalog:",
     "mobx-react-lite": "catalog:",
     "react": "catalog:",
@@ -30,11 +30,11 @@
     "@pmm/styles": "workspace:*",
     "@pmm/types": "workspace:*",
     "@pmm/unocss-config": "workspace:*",
-    "@svgr/core": "^8.1.0",
+    "@svgr/core": "catalog:",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
     "@vitejs/plugin-react": "catalog:",
     "vite": "catalog:",
-    "vite-plugin-svgr": "^4.3.0"
+    "vite-plugin-svgr": "catalog:"
   }
 }

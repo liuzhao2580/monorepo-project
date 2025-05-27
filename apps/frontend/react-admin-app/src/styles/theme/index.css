@@ -1,2 +1,7 @@
 @import "./dark.css";
 @import "./light.css";
+
+:root {
+  --layout-header-height: 46px;
+  --layout-footer-height: 40px;
+}

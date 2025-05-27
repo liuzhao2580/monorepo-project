@@ -6,10 +6,10 @@ import {
   GroupOutlined,
   BgColorsOutlined,
 } from "@ant-design/icons";
-import RentalHousingIcon from "@/assets/layout/公租房.svg";
+import RentalHousingIcon from "@/assets/layout/公租房.svg?react";
 import type { IRouterList } from "@/types/router";
 import { ROUTE_PATH, ROUTE_TITLE } from "./RouteConst";
-import Dashboard from "@/pages/Dashboard";
+import Home from "@/pages/Home";
 import Personal from "@/pages/Personal";
 import Document from "@/pages/Document";
 import FirstMenu from "@/pages/MultilevelMenu/first-menu";
@@ -21,9 +21,9 @@ import RentalHousing from "@/pages/RentalHousing/index";
 /** 路由的保存数组*/
 export const routerList: Array<IRouterList> = [
   {
-    path: ROUTE_PATH.DASHBOARD,
-    meta: { icon: HomeOutlined, title: ROUTE_TITLE.DASHBOARD },
-    Component: Dashboard,
+    path: ROUTE_PATH.HOME,
+    meta: { icon: HomeOutlined, title: ROUTE_TITLE.HOME },
+    Component: Home,
   },
   // 租房rental housing
   {

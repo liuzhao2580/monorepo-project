@@ -3,7 +3,7 @@ export const ROUTE_PATH = {
   /** 登录页面 */
   LOGIN: "/login",
   /** 首页 */
-  DASHBOARD: "/dashboard",
+  HOME: "/home",
   /** 个人中心 */
   PERSONAL: "/personal",
   /** 租房 */
@@ -44,7 +44,7 @@ export const ROUTE_TITLE = {
   /** 登录页面 */
   LOGIN: "登录",
   /** 首页 */
-  DASHBOARD: "首页",
+  HOME: "首页",
   /** 个人中心 */
   PERSONAL: "个人中心",
   /** 租房 */
