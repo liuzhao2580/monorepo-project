@@ -20,6 +20,7 @@
     "lucide-react": "catalog:",
     "mobx": "catalog:",
     "mobx-react-lite": "catalog:",
+    "pinyin": "^4.0.0",
     "react": "catalog:",
     "react-dom": "catalog:",
     "react-router": "catalog:"

@@ -6,7 +6,8 @@ import Icon from "@ant-design/icons";
 import { routerList } from "@/router/RouteList";
 import { observer } from "mobx-react-lite";
 import type { IRouterList } from "@/types/router";
-import { PawPrintIcon } from "lucide-react";
+import Logo from "@/components/Logo";
+import City from "./components/City";
 type MenuItem = Required<MenuProps>["items"][number];
 
 function getItem(
@@ -81,7 +82,10 @@ const HeaderMenu = observer(() => {
   };
   return (
     <div className="flex items-center w-full">
-      <PawPrintIcon className="font-color-primary w-1/3" size={40} />
+      <div className="w-1/3 flex items-center justify-around">
+        <Logo className="text-8"></Logo>
+        <City></City>
+      </div>
       <Menu
         theme="dark"
         selectedKeys={selectedKeys}
