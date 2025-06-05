@@ -4,6 +4,7 @@ packages:
   - apps/frontend/**
   - packages/*
   - docs
+  - p-mapbox
 catalog:
   "@ant-design/icons": ^6.0.0
   "@changesets/cli": ^2.29.4

@@ -23,7 +23,8 @@
     "pinyin": "^4.0.0",
     "react": "catalog:",
     "react-dom": "catalog:",
-    "react-router": "catalog:"
+    "react-router": "catalog:",
+    "p-mapbox": "workspace:*"
   },
   "devDependencies": {
     "@pmm/eslint-config": "workspace:*",

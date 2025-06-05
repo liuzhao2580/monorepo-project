@@ -98,8 +98,8 @@ const City = () => {
   }, []);
 
   const onChange = (value: any) => {
-    console.log(value);
     setCityActive(value);
+    handleCancel();
   };
 
   return (
