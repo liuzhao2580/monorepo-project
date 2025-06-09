@@ -9,45 +9,38 @@ import {
 import RentalHousingIcon from "@/assets/layout/公租房.svg?react";
 import type { IRouterList } from "@/types/router";
 import { ROUTE_PATH, ROUTE_TITLE } from "./RouteConst";
-import Home from "@/pages/Home";
-import Personal from "@/pages/Personal";
-import Document from "@/pages/Document";
-import FirstMenu from "@/pages/MultilevelMenu/first-menu";
-import SecondMenu from "@/pages/MultilevelMenu/second-menu";
-import ThirdMenu from "@/pages/MultilevelMenu/third-menu";
-import ColorList from "@/pages/ColorList";
-import RentalHousing from "@/pages/RentalHousing/index";
+import { lazyLoad } from "./lazyLoad";
 
 /** 路由的保存数组*/
 export const routerList: Array<IRouterList> = [
   {
     path: ROUTE_PATH.HOME,
     meta: { icon: HomeOutlined, title: ROUTE_TITLE.HOME },
-    Component: Home,
+    Component: lazyLoad(() => import("@/pages/Home")),
   },
   // 租房rental housing
   {
     path: ROUTE_PATH.RENTAL_HOUSING,
     meta: { icon: RentalHousingIcon, title: ROUTE_TITLE.RENTAL_HOUSING },
-    Component: RentalHousing,
+    Component: lazyLoad(() => import("@/pages/RentalHousing")),
   },
   // 个人中心页面
   {
     path: ROUTE_PATH.PERSONAL,
     meta: { hidden: true, title: ROUTE_TITLE.PERSONAL },
-    Component: Personal,
+    Component: lazyLoad(() => import("@/pages/Personal")),
   },
   // 文档页面
   {
     path: ROUTE_PATH.DOCUMENT,
     meta: { icon: FileTextOutlined, title: ROUTE_TITLE.DOCUMENT },
-    Component: Document,
+    Component: lazyLoad(() => import("@/pages/Document")),
   },
   // 颜色表大全
   {
     path: ROUTE_PATH.COLOR_LIST,
     meta: { icon: BgColorsOutlined, title: ROUTE_TITLE.COLOR_LIST },
-    Component: ColorList,
+    Component: lazyLoad(() => import("@/pages/ColorList")),
   },
   // 多级菜单
   {
@@ -58,7 +51,7 @@ export const routerList: Array<IRouterList> = [
       {
         path: ROUTE_PATH.MULTILEVEL_FIRST,
         meta: { icon: BarsOutlined, title: ROUTE_TITLE.MULTILEVEL_FIRST },
-        Component: FirstMenu,
+        Component: lazyLoad(() => import("@/pages/MultilevelMenu/first-menu")),
       },
       {
         path: ROUTE_PATH.MULTILEVEL_SECOND,
@@ -74,7 +67,7 @@ export const routerList: Array<IRouterList> = [
               icon: BarsOutlined,
               title: ROUTE_TITLE.MULTILEVEL_THIRD,
             },
-            Component: SecondMenu,
+            Component: lazyLoad(() => import("@/pages/MultilevelMenu/second-menu")),
           },
           {
             path: ROUTE_PATH.MULTILEVEL_THIRD_TWO,
@@ -91,12 +84,20 @@ export const routerList: Array<IRouterList> = [
                   icon: FileAddOutlined,
                   title: ROUTE_TITLE.MULTILEVEL_FOUR,
                 },
-                Component: ThirdMenu,
+                Component: lazyLoad(() => import("@/pages/MultilevelMenu/third-menu")),
               },
             ],
           },
         ],
       },
     ],
+  },
+];
+
+export const outLayoutRoutes: Array<IRouterList> = [
+  {
+    path: ROUTE_PATH.MAP_HOUSING,
+    meta: { hidden: true, title: ROUTE_TITLE.MAP_HOUSING },
+    Component: lazyLoad(() => import("@/pages/MapHousing")),
   },
 ];

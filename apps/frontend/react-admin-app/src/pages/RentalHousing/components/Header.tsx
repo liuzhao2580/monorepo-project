@@ -1,9 +1,12 @@
 import { SearchOutlined } from "@ant-design/icons";
 import { Input, Button } from "antd";
+import { useNavigate } from "react-router";
 import Logo from "@/components/Logo";
+import { ROUTE_PATH } from "@/router/RouteConst";
 const Header = () => {
+  const navigate = useNavigate();
   const publishHouse = () => {
-    console.log(123123);
+    navigate(ROUTE_PATH.MAP_HOUSING);
   };
   return (
     <div>

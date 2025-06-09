@@ -8,6 +8,8 @@ export const ROUTE_PATH = {
   PERSONAL: "/personal",
   /** 租房 */
   RENTAL_HOUSING: "/rental-housing",
+  /** 地图房源 */
+  MAP_HOUSING: "/map-housing",
   /** 文档 */
   DOCUMENT: "/document",
   /** 权限 */
@@ -49,6 +51,8 @@ export const ROUTE_TITLE = {
   PERSONAL: "个人中心",
   /** 租房 */
   RENTAL_HOUSING: "租房",
+  /** 地图房源 */
+  MAP_HOUSING: "地图房源",
   /** 文档 */
   DOCUMENT: "文档",
   /** 权限 */
