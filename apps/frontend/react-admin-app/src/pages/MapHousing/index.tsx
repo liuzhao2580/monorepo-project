@@ -1,5 +1,14 @@
+import Map from "@/utils/modules/map";
+import { useEffect } from "react";
 const MapHousing = () => {
-  return <div className="absolute right-0 left-0 bg-blue top-0">MMMM</div>;
+  useEffect(() => {
+    new Map().init();
+  }, []);
+  return (
+    <div className="w-100vw h-100vh">
+      <div id="map" className="w-full h-full"></div>
+    </div>
+  );
 };
 
 export default MapHousing;
