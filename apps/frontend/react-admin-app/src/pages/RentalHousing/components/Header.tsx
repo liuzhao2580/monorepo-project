@@ -11,8 +11,10 @@ const Header = () => {
   return (
     <div>
       <div className="flex items-center justify-between">
-        <Logo className="text-8 mb-2">
-          <span className="font-700 text-8 font-color-primary">爪爪租房</span>
+        <Logo>
+          <span className="text-6 font-color-primary font-[AlibabaPuHuiTi\_3\_65\_Medium]">
+            爪爪租房
+          </span>
         </Logo>
         <Button type="primary" onClick={publishHouse}>
           发布房源
