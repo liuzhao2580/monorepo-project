@@ -10,7 +10,7 @@ export default function Login() {
 
   const onFinish = () => {
     localStorage.setItem("token", "ok");
-    navigate(ROUTE_PATH.DASHBOARD);
+    navigate(ROUTE_PATH.HOME);
   };
 
   const onFinishFailed = (errorInfo: any) => {
