@@ -1,11 +1,16 @@
 import { Checkbox, Input } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
 import { useI18n } from "@pmm/i18n/react";
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import DoubleInput from "./DoubleInput";
+type Type = "price" | "room" | "area" | "more";
 const HeaderSearch = () => {
   const { t } = useI18n();
-
   const [currentTypeIndex, setCurrentTypeIndex] = useState(-1);
+  const [currentType, setCurrentType] = useState<Type | "">("");
+  useEffect(() => {
+    setCurrentType(list[currentTypeIndex]?.type || "");
+  }, [currentTypeIndex]);
   // 定义不同 type 对应的多选配置
   const typeOptions: Record<
     string,
@@ -146,12 +151,12 @@ const HeaderSearch = () => {
       },
     ],
   };
-  interface ITyle {
-    type: string;
+  interface IType {
+    type: Type;
     label: string;
     iconfont: string;
   }
-  const list: ITyle[] = [
+  const list: IType[] = [
     {
       type: "price",
       label: t("map.price"),
@@ -173,7 +178,7 @@ const HeaderSearch = () => {
       iconfont: "icon-more",
     },
   ];
-  function handleTypeClick(item: ITyle, index: number) {
+  function handleTypeClick(item: IType, index: number) {
     if (currentTypeIndex === index) {
       setCurrentTypeIndex(-1);
       return;
@@ -181,6 +186,23 @@ const HeaderSearch = () => {
     console.log(item);
     setCurrentTypeIndex(index);
   }
+
+  const RenderCheckbox = useMemo(() => {
+    if (currentTypeIndex === -1) return [];
+    return typeOptions[list[currentTypeIndex]!.type]!.map((item) => {
+      return (
+        <div className="flex flex-col gap-y-10px mb-20px" key={item.title}>
+          <span className="font-700">{item.title}</span>
+          <div>
+            <Checkbox.Group
+              className="gap-y-10px grid grid-cols-4 select-none"
+              options={item.options}
+            />
+          </div>
+        </div>
+      );
+    });
+  }, [currentTypeIndex, typeOptions, list]);
   return (
     <div className="flex">
       <Input
@@ -204,27 +226,14 @@ const HeaderSearch = () => {
           })}
         </div>
         <div
-          className={`mt-20px bg-[var(--background-color)] rounded-1 w-480px min-h-240px max-h-400px overflow-y-auto p-12px relative ${currentTypeIndex !== -1 ? "block" : "hidden"}`}
+          className={`mt-20px bg-[var(--background-color)] rounded-1 w-480px  p-12px pb-50px relative ${currentTypeIndex !== -1 ? "block" : "hidden"}`}
         >
-          <div>
-            {currentTypeIndex !== -1 &&
-              typeOptions[list[currentTypeIndex]!.type]!.map((item) => {
-                return (
-                  <div className="flex flex-col gap-y-10px" key={item.title}>
-                    <span className="font-700">{item.title}</span>
-                    <div>
-                      {
-                        <Checkbox.Group
-                          className="gap-y-10px  grid grid-cols-4 select-none"
-                          options={item.options}
-                        />
-                      }
-                    </div>
-                  </div>
-                );
-              })}
+          <div className="min-h-200px max-h-400px overflow-y-auto">
+            {currentTypeIndex !== -1 && RenderCheckbox}
+            {currentType === "price" && <DoubleInput max={1000} unit="万"></DoubleInput>}
+            {currentType === "area" && <DoubleInput max={500} unit="㎡"></DoubleInput>}
           </div>
-          <div className="flex justify-between absolute bottom-0 left-0 right-0 px-12px h-50px lh-50px [&_span]:px-10px">
+          <div className="flex justify-between absolute bottom-0 left-0 right-0 px-12px h-50px lh-50px [&_span]:px-10px bg-[var(--background-color)]">
             <span className="cursor-pointer cursor-pointer">{t("base.reset")}</span>
             <div className="flex gap-x-20px cursor-pointer">
               <span onClick={() => setCurrentTypeIndex(-1)}>{t("base.cancel")}</span>

@@ -1,6 +1,6 @@
 import Map from "@/utils/modules/map";
 import { useEffect } from "react";
-import HeaderSearch from "./components/HeaderSearch";
+import HeaderSearch from "./components/HeaderSearch/index";
 const MapHousing = () => {
   useEffect(() => {
     new Map().init();
