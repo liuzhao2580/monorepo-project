@@ -9,6 +9,8 @@ export default defineConfig({
 
     "layout-header-height": "h-[var(--layout-header-height)]",
     "layout-footer-height": "h-[var(--layout-footer-height)]",
+    "layout-content-min-height":
+      "min-h-[calc(100vh-var(--layout-header-height)-var(--layout-footer-height))]",
     "layout-header-bg-color": "bg-[#101d37]",
     "layout-footer-bg-color": "bg-[#101d37]",
     "layout-bg-color": "bg-[#fff]",
