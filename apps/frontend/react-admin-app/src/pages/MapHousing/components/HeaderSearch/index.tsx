@@ -208,7 +208,7 @@ const HeaderSearch = () => {
       <Input
         placeholder={t("map.searchPlaceholder")}
         suffix={<SearchOutlined />}
-        className="rounded-1 h-10 lh-10  m-r-10"
+        className="rounded-1 h-10 lh-10  m-r-10 w-340px"
       />
       <div className="flex flex-col">
         <div className="flex bg-[var(--background-color)] rounded-1 h-10 lh-10 w-max">

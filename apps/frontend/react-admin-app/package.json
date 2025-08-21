@@ -18,13 +18,13 @@
     "echarts": "catalog:",
     "i18next": "catalog:",
     "lucide-react": "catalog:",
+    "mapbox-gl": "^3.12.0",
     "mobx": "catalog:",
     "mobx-react-lite": "catalog:",
     "pinyin": "^4.0.0",
     "react": "catalog:",
     "react-dom": "catalog:",
-    "react-router": "catalog:",
-    "p-mapbox": "workspace:*"
+    "react-router": "catalog:"
   },
   "devDependencies": {
     "@pmm/eslint-config": "workspace:*",

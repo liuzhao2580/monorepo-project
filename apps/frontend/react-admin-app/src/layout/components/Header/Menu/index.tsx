@@ -8,6 +8,7 @@ import { observer } from "mobx-react-lite";
 import type { IRouterList } from "@/types/router";
 import Logo from "@/components/Logo";
 import City from "./components/City";
+import { ROUTE_PATH } from "@/router/RouteConst";
 type MenuItem = Required<MenuProps>["items"][number];
 
 function getItem(
@@ -30,7 +31,7 @@ const HeaderMenu = observer(() => {
   const navigate = useNavigate();
   const location = useLocation();
   // 默认选择的侧边栏 当前选中的菜单项 key 数组
-  const [selectedKeys, setSelectenMenu] = useState(["/dashboard"]);
+  const [selectedKeys, setSelectenMenu] = useState([ROUTE_PATH.HOME]);
 
   // 初始展开的 SubMenu 菜单项 key 数组
   const [defaultOpenKeys, setDefaultOpenKeys] = useState<Array<any>>([]);
