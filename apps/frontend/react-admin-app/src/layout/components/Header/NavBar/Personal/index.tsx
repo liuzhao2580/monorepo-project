@@ -10,6 +10,7 @@ import { observer } from "mobx-react-lite";
 import MessageDropdown from "./MessageDropdown";
 import { appStore } from "@/store/app";
 import "./index.scss";
+import React from "react";
 const Personal = observer(() => {
   const navigate = useNavigate();
   const { t } = useI18n();
@@ -33,38 +34,30 @@ const Personal = observer(() => {
     }
   };
 
-  const items: MenuProps["items"] = [
-    {
-      key: "personal",
-      label: (
-        <span>
-          <UserOutlined />
-          <span>{t("layout.personalCenter")}</span>
-        </span>
-      ),
-    },
-    {
-      key: "publishHousing",
-      label: (
-        <span>
-          <UserOutlined />
-          <span>{t("layout.publishHousing")}</span>
-        </span>
-      ),
-    },
-    {
-      type: "divider",
-    },
-    {
-      key: "logout",
-      label: (
-        <span>
-          <ExportOutlined />
-          <span>{t("layout.logout")}</span>
-        </span>
-      ),
-    },
+  const list = [
+    { key: "personal", title: t("layout.personalCenter"), icon: <UserOutlined /> },
+    { key: "publishHousing", title: t("layout.publishHousing"), iconfont: "icon-publish-house" },
+    { key: "logout", title: t("layout.logout"), icon: <ExportOutlined /> },
   ];
+  const items: MenuProps["items"] = list.flatMap((item) => {
+    const menuItem = {
+      key: item.key,
+      icon: item.icon && React.cloneElement(item.icon, { style: { fontSize: 16 } }),
+      label: (
+        <span className="flex items-center">
+          {item.iconfont && <i className={`iconfont ${item.iconfont} mr-7px`}></i>}
+          {item.title}
+        </span>
+      ),
+    };
+
+    // 在 logout 前插入分割线
+    if (item.key === "logout") {
+      return [{ type: "divider" as const }, menuItem];
+    }
+
+    return [menuItem];
+  });
   /** 消息下拉框的改变事件 */
   function messageDropOpen(flag: boolean) {
     if (flag) {
