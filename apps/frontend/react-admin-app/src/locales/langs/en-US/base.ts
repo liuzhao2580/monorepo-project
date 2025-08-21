@@ -1,4 +1,5 @@
 export default {
+  title: "ZhuaZhua Rental",
   reset: "Reset",
   save: "Save",
   cancel: "Cancel",

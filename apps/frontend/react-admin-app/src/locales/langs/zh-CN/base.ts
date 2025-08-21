@@ -1,4 +1,5 @@
 export default {
+  title: "爪爪租房",
   reset: "重置",
   save: "保存",
   cancel: "取消",

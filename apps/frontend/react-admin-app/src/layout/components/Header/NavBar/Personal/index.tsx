@@ -44,6 +44,15 @@ const Personal = observer(() => {
       ),
     },
     {
+      key: "publishHousing",
+      label: (
+        <span>
+          <UserOutlined />
+          <span>{t("layout.publishHousing")}</span>
+        </span>
+      ),
+    },
+    {
       type: "divider",
     },
     {
@@ -81,7 +90,10 @@ const Personal = observer(() => {
         </div>
       </div>
       <Dropdown menu={{ items, onClick: menuClick }} trigger={["hover"]}>
-        <div className="personal-dropdown" style={{ display: "flex", alignItems: "center" }}>
+        <div
+          className="personal-dropdown cursor-pointer"
+          style={{ display: "flex", alignItems: "center" }}
+        >
           <span className="personal-name">Hi~</span>
           <img className="personal-img" src={userStore.userInfo.avatar} alt="" />
           <DownOutlined />
