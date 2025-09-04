@@ -18,10 +18,10 @@
     "echarts": "catalog:",
     "i18next": "catalog:",
     "lucide-react": "catalog:",
-    "mapbox-gl": "^3.12.0",
+    "mapbox-gl": "catalog:",
     "mobx": "catalog:",
     "mobx-react-lite": "catalog:",
-    "pinyin": "^4.0.0",
+    "pinyin": "catalog:",
     "react": "catalog:",
     "react-dom": "catalog:",
     "react-router": "catalog:"

@@ -3,23 +3,27 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "next dev --turbopack -p 4300",
     "build": "next build --turbopack",
     "start": "next start",
     "lint": "eslint"
   },
   "dependencies": {
-    "react": "19.1.0",
-    "react-dom": "19.1.0",
-    "next": "15.5.2"
+    "react": "catalog:",
+    "react-dom": "catalog:",
+    "next": "catalog:"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@pmm/eslint-config": "workspace:*",
+    "@pmm/i18n": "workspace:*",
+    "@pmm/styles": "workspace:*",
+    "@pmm/types": "workspace:*",
+    "@pmm/unocss-config": "workspace:*",
+    "@svgr/core": "catalog:",
     "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "eslint": "^9",
-    "eslint-config-next": "15.5.2",
-    "@eslint/eslintrc": "^3"
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
+    "eslint-config-next": "catalog:",
+    "@eslint/eslintrc": "catalog:"
   }
 }
