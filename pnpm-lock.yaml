@@ -508,9 +508,27 @@ importers:
 
   apps/frontend/nextjs-housing:
     dependencies:
+      '@ant-design/icons':
+        specifier: 'catalog:'
+        version: 6.0.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      antd:
+        specifier: 'catalog:'
+        version: 5.25.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      echarts:
+        specifier: 'catalog:'
+        version: 5.6.0
+      lucide-react:
+        specifier: 'catalog:'
+        version: 0.511.0(react@18.3.1)
+      mapbox-gl:
+        specifier: 'catalog:'
+        version: 3.12.0
       next:
         specifier: 'catalog:'
         version: 15.5.2(@babel/core@7.27.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.89.0)
+      pinyin:
+        specifier: 'catalog:'
+        version: 4.0.0
       react:
         specifier: 'catalog:'
         version: 18.3.1

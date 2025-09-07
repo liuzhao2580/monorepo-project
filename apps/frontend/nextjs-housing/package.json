@@ -9,6 +9,12 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@ant-design/icons": "catalog:",
+    "antd": "catalog:",
+    "echarts": "catalog:",
+    "lucide-react": "catalog:",
+    "mapbox-gl": "catalog:",
+    "pinyin": "catalog:",
     "react": "catalog:",
     "react-dom": "catalog:",
     "next": "catalog:"
