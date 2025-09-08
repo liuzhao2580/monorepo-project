@@ -1,12 +1,11 @@
 'use client'
 import { useEffect } from "react";
 import { Layout } from "antd";
-import LayoutHeader from "./_components/Header";
-import LayoutFooter from "./_components/Footer";
-import ContentDom from "./_components/Content";
+import LayoutHeader from "./components/Header";
+import LayoutFooter from "./components/Footer";
 // import resizeMethods from "../utils/modules/onResize";
 // import { ROUTE_PATH } from "@/router/RouteConst";
-const LayoutDom = () => {
+const LayoutDom = ({ children }: { children: React.ReactNode }) => {
   useEffect(() => {
     // resizeMethods.onResize();
     // resizeMethods.listenResize();
@@ -22,7 +21,7 @@ const LayoutDom = () => {
       </div>
       <div className="flex-1 overflow-y-auto overflow-x-hidden">
         <div className="w-1150px relative p-4 m-auto layout-content-min-height">
-          <ContentDom></ContentDom>
+          {children}
         </div>
         <div className="layout-footer-height flex items-center justify-center layout-footer-bg-color font-color-base">
           <LayoutFooter></LayoutFooter>
